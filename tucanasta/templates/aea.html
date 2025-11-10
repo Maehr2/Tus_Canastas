@@ -1,0 +1,260 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ tipo }} - Tucanasta 🛒</title>
+
+  <!-- Si ya incluyes bootstrap en base, elimina la línea siguiente -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'css/categoria.css' %}">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+<body>
+  <!-- NAVBAR (con badge de cotizaciones) -->
+  <header class="navbar navbar-dark bg-dark d-flex align-items-center px-3">
+    <a href="{% url 'comparador' %}" class="d-flex align-items-center text-decoration-none">
+      <img src="{% static 'img/logotucan.png' %}" alt="Tucanasta" class="logo-img me-2" style="height:36px;">
+      <span class="brand-name text-white">Tucanasta</span>
+    </a>
+
+    <form method="get" action="" class="search-bar ms-3 me-auto">
+      <input type="text" name="q" placeholder="Buscar en {{ tipo }}..." value="{{ request.GET.q }}" class="form-control">
+      <button type="submit" class="btn btn-success ms-2">🔍</button>
+    </form>
+
+    <div class="ms-3 d-flex align-items-center">
+      {% if user.is_authenticated %}
+        <a href="{% url 'ver_cotizacion' %}" class="btn btn-outline-light position-relative">
+          🧾 Cotización
+          <span id="cot-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {{ cot_count|default:0 }}
+          </span>
+        </a>
+      {% else %}
+        <a href="{% url 'login' %}" class="btn btn-outline-light">Iniciar sesión</a>
+      {% endif %}
+    </div>
+  </header>
+
+  <main class="container-fluid mt-4">
+    <div class="row">
+      <!-- SIDEBAR FILTROS -->
+      <aside class="col-lg-3 mb-4">
+        <form id="filters-form" method="get">
+          <h4>Filtros</h4>
+          <div class="mb-3">
+            <label class="form-label">Ordenar por</label>
+            <select name="ordenar" class="form-select" onchange="document.getElementById('filters-form').submit()">
+              <option value="">Relevancia</option>
+              <option value="precio_asc" {% if ordenar == 'precio_asc' %}selected{% endif %}>Precio: Menor a mayor</option>
+              <option value="precio_desc" {% if ordenar == 'precio_desc' %}selected{% endif %}>Precio: Mayor a menor</option>
+              <option value="nombre_asc" {% if ordenar == 'nombre_asc' %}selected{% endif %}>Nombre: A-Z</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <h5>Marcas</h5>
+            <ul class="list-unstyled">
+              {% for marca in marcas %}
+                <li>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input me-1" name="marca" value="{{ marca }}"
+                      {% if marca in marca_filtro %}checked{% endif %}
+                      onchange="document.getElementById('filters-form').submit()">
+                    {{ marca }}
+                  </label>
+                </li>
+              {% empty %}
+                <li class="text-muted">No hay marcas registradas.</li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <div class="mb-3">
+            <h5>Tiendas</h5>
+            <ul class="list-unstyled">
+              {% for tienda in tiendas %}
+                <li>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input me-1" name="tienda" value="{{ tienda }}"
+                      {% if tienda in tienda_filtro %}checked{% endif %}
+                      onchange="document.getElementById('filters-form').submit()">
+                    {{ tienda }}
+                  </label>
+                </li>
+              {% empty %}
+                <li class="text-muted">No hay tiendas disponibles.</li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          {% if request.GET.q %}
+            <input type="hidden" name="q" value="{{ request.GET.q }}">
+          {% endif %}
+
+          <div class="mb-3">
+            <button type="button" class="btn btn-secondary" onclick="window.location.href=window.location.pathname">
+              Limpiar filtros ✖
+            </button>
+          </div>
+        </form>
+      </aside>
+
+      <!-- PRODUCTOS -->
+      <section class="col-lg-9">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <div>
+            <h2 class="mb-0">{{ tipo|capfirst }} disponibles</h2>
+            <small class="text-muted">{{ productos|length }} resultados</small>
+          </div>
+        </div>
+
+        <div class="row g-3">
+          {% for p in productos %}
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card h-100 product-card">
+                <a href="{{ p.producto_url }}" target="_blank" rel="noopener" class="text-center p-2">
+                  <img src="{{ p.imagen_url|default:'/static/img/placeholder.png' }}" alt="{{ p.nombre }}" class="img-fluid" style="max-height:140px; object-fit:contain;">
+                </a>
+
+                <div class="card-body d-flex flex-column">
+                  <h6 class="card-title product-name">{{ p.nombre|truncatechars:60 }}</h6>
+                  <p class="text-muted mb-1 small">{{ p.marca }}</p>
+                  <p class="fw-bold text-success mb-2">${{ p.precio|floatformat:0 }}</p>
+                  <p class="small text-muted mb-2">{{ p.supermercado.nombre }}</p>
+
+                  <div class="mt-auto d-flex gap-2">
+                    <a href="{{ p.producto_url }}" target="_blank" class="btn btn-outline-secondary btn-sm flex-grow-1">Ver</a>
+
+                    <!-- BOTÓN AGREGAR A COTIZACIÓN: data-product-id -->
+                    <button class="btn btn-success btn-sm add-to-quote" data-product-id="{{ p.id }}">
+                      Agregar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        {% if productos|length == 0 %}
+          <p class="text-muted mt-3">No hay productos disponibles en esta categoría.</p>
+        {% endif %}
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer text-center text-muted py-3 mt-4 bg-white">
+    © 2025 Tucanasta. Todos los derechos reservados.
+  </footer>
+
+  <!-- Bootstrap JS (opcional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- ========== JS: agregar a cotización (AJAX seguro) ========== -->
+  <script>
+  // --- Helper CSRF (obtener cookie) ---
+  function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+  const csrftoken = getCookie('csrftoken');
+
+  // --- Handler para botones "Agregar" ---
+  document.querySelectorAll('.add-to-quote').forEach(button => {
+    let inFlight = false;
+
+    button.addEventListener('click', async (e) => {
+      if (inFlight) return;
+      inFlight = true;
+
+      const prodId = button.dataset.productId;
+      if (!prodId) {
+        console.error('No se encontró data-product-id en el botón.');
+        inFlight = false;
+        return;
+      }
+
+      const prevText = button.innerHTML;
+      button.disabled = true;
+      button.classList.add('disabled');
+      button.innerHTML = 'Enviando...';
+
+      try {
+        const res = await fetch("{% url 'agregar_cotizacion' %}", {
+          method: 'POST',
+          headers: {
+            'X-CSRFToken': csrftoken,
+            'X-Requested-With': 'XMLHttpRequest',
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+          },
+          body: new URLSearchParams({
+            product_id: prodId,
+            cantidad: 1
+          })
+        });
+
+        // si el servidor redirige (ej. a login), fetch sigue redirección -> verificamos
+        if (res.redirected) {
+          window.location.href = res.url;
+          return;
+        }
+
+        const contentType = res.headers.get('content-type') || '';
+        if (contentType.includes('application/json')) {
+          const data = await res.json();
+          if (data.ok) {
+            // feedback visual
+            button.innerHTML = 'Agregado ✓';
+            button.classList.remove('btn-success');
+            button.classList.add('btn-outline-success');
+            // actualizar badge si existe
+            const badge = document.getElementById('cot-badge');
+            if (badge) {
+              const current = parseInt(badge.innerText.replace(/\D/g,'')) || 0;
+              badge.innerText = current + 1;
+            }
+          } else {
+            const err = data.error || 'Error desconocido';
+            alert('No se pudo agregar: ' + err);
+            button.innerHTML = prevText;
+          }
+        } else {
+          // respuesta inesperada — mostrar consola y aviso
+          const txt = await res.text();
+          console.error('Respuesta inesperada al agregar:', txt);
+          alert('Respuesta inesperada del servidor. Revisa la consola.');
+          button.innerHTML = prevText;
+        }
+      } catch (err) {
+        console.error('Error de red al agregar:', err);
+        alert('Error de red al agregar producto. Intenta de nuevo.');
+        button.innerHTML = prevText;
+      } finally {
+        // reset (pequeño delay para que se note el cambio)
+        setTimeout(() => {
+          button.disabled = false;
+          button.classList.remove('disabled');
+          // si quedó "Agregado ✓" lo dejamos así  (si quieres revertir, descomenta la siguiente línea)
+          // button.innerHTML = prevText;
+          inFlight = false;
+        }, 800);
+      }
+    });
+  });
+  </script>
+</body>
+</html>

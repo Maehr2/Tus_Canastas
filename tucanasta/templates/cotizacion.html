@@ -160,11 +160,15 @@
     });
 
     // === Guardar cotización ===
-    document.getElementById('save-cot')?.addEventListener('click', async () => {
-      const res = await postJSON("{% url 'guardar_cotizacion' %}", {});
-      alert(res.ok ? '✅ Cotización guardada con éxito' : '❌ Error al guardar la cotización');
-      if (res.ok) location.reload();
-    });
+document.getElementById('save-cot')?.addEventListener('click', async () => {
+  const res = await postJSON("{% url 'guardar_cotizacion' %}", {});
+  if (res.ok && res.cotizacion_id) {
+    // redirige a la lista de cotizaciones guardadas
+    window.location.href = "{% url 'mis_cotizaciones' %}";
+  } else {
+    alert(res.error || 'Error al guardar la cotización');
+  }
+});
   </script>
 </body>
 </html>

@@ -1,6 +1,12 @@
 # forms.py
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+# forms.py (añadir estas clases)
+
+from django import forms
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import PasswordChangeForm
+
 from .models import Usuario
 import re
 
@@ -33,3 +39,26 @@ class CustomUserCreationForm(UserCreationForm):
         if Usuario.objects.filter(email=email).exists():
             raise forms.ValidationError("Ya existe un usuario con ese correo.")
         return email
+
+
+class UserUpdateForm(forms.ModelForm):
+    """
+    Formulario para actualizar campos básicos del User.
+    """
+    class Meta:
+        model = User
+        fields = ['username', 'first_name', 'last_name', 'email']
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre de usuario'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Apellido'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'email@ejemplo.com'}),
+        }
+
+class SimplePasswordChangeForm(PasswordChangeForm):
+    """
+    Hereda del PasswordChangeForm para poder aplicar clases bootstrap a los campos.
+    """
+    old_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Contraseña actual'}))
+    new_password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Nueva contraseña'}))
+    new_password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Confirmar nueva contraseña'}))

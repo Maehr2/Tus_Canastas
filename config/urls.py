@@ -21,6 +21,11 @@ urlpatterns = [
     path('cotizacion/eliminar/', views.eliminar_item, name='eliminar_item'),
     path('cotizacion/guardar/', views.guardar_cotizacion, name='guardar_cotizacion'),
     
+        path('mis-cotizaciones/', views.mis_cotizaciones, name='mis_cotizaciones'),
+    path('cotizacion/reabrir/', views.reabrir_cotizacion, name='reabrir_cotizacion'),
+    path('cotizacion/eliminar/', views.eliminar_cotizacion, name='eliminar_cotizacion'),
+    
+    
     path('ajustes/', views.ajustes, name='ajustes'),
     path('producto/<int:producto_id>/', views.producto_detalle, name='producto_detalle'),
 

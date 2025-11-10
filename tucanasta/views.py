@@ -7,10 +7,11 @@ from django.db.models import Q
 from django.views.decorators.http import require_POST
 from .models import Producto, Supermercado
 from django.http import JsonResponse, HttpResponseRedirect
+from django.contrib.auth import update_session_auth_hash
 from django.urls import reverse
 from .forms import CustomUserCreationForm
-
-
+from django.utils import timezone
+from .forms import UserUpdateForm, SimplePasswordChangeForm
 # importa modelos (incluye Cotizacion y CotizacionItem)
 from .models import Producto, Supermercado, Cotizacion, CotizacionItem
 
@@ -114,22 +115,112 @@ def eliminar_item(request):
 @login_required
 @require_POST
 def guardar_cotizacion(request):
-    if request.method == "POST":
-        # ejemplo: marcar la cotización actual del usuario como "guardada"
-        cotizacion = Cotizacion.objects.filter(usuario=request.user, estado="borrador").first()
-        if cotizacion:
-            cotizacion.estado = "guardada"
-            cotizacion.save()
-            return JsonResponse({"ok": True})
-        return JsonResponse({"ok": False, "error": "No se encontró la cotización"})
-    return JsonResponse({"ok": False, "error": "Método no permitido"})
+    """
+    Marca la cotización abierta del usuario como 'saved' y devuelve JSON con id.
+    Opcional: recibe 'nombre' en POST para nombrar la cotización.
+    """
+    cot = Cotizacion.objects.filter(usuario=request.user, status='open').first()
+    if not cot:
+        return JsonResponse({'ok': False, 'error': 'No hay cotización abierta'}, status=404)
+
+    nombre = request.POST.get('nombre') or f'Cotización {timezone.localtime().strftime("%Y-%m-%d %H:%M")}'
+    cot.nombre = nombre
+    cot.status = 'saved'
+    cot.save()
+
+    return JsonResponse({'ok': True, 'cotizacion_id': cot.pk})
+
+
+# Lista de cotizaciones del usuario (guardadas / abiertas / enviadas)
+@login_required
+def mis_cotizaciones(request):
+    cotizaciones = (
+        Cotizacion.objects
+        .filter(usuario=request.user)
+        .prefetch_related('items__producto', 'items__producto__supermercado')
+        .order_by('-fecha_creacion')
+    )
+    return render(request, 'mis_cotizaciones.html', {'cotizaciones': cotizaciones})
+
+
+# Reabrir una cotización (ponerla como 'open')
+@login_required
+@require_POST
+def reabrir_cotizacion(request):
+    cot_id = request.POST.get('cot_id')
+    cot = get_object_or_404(Cotizacion, pk=cot_id, usuario=request.user)
+
+    # Si quieres permitir solo una abierta, cerramos las otras abiertas
+    Cotizacion.objects.filter(usuario=request.user, status='open').exclude(pk=cot.pk).update(status='saved')
+
+    cot.status = 'open'
+    cot.save()
+    return JsonResponse({'ok': True, 'cotizacion_id': cot.pk})
+
+
+# Eliminar cotización completa
+@login_required
+@require_POST
+def eliminar_cotizacion(request):
+    cot_id = request.POST.get('cot_id')
+    cot = get_object_or_404(Cotizacion, pk=cot_id, usuario=request.user)
+    cot.delete()
+    return JsonResponse({'ok': True})
 
 
 # --- ajustes (placeholder) ---
 @login_required
 def ajustes(request):
-    # aquí puedes gestionar perfil / preferencias del usuario
-    return render(request, "ajustes.html")
+    """
+    Página de ajustes:
+    - maneja update de perfil y cambio de contraseña
+    - prepara cotizacion y cot_items para el mini-cart (igual que en comparador_view)
+    """
+    user = request.user
+
+    # Manejo de POSTs
+    if request.method == 'POST':
+        if 'profile_submit' in request.POST:
+            profile_form = UserUpdateForm(request.POST, instance=user)
+            password_form = SimplePasswordChangeForm(user=user)
+            if profile_form.is_valid():
+                profile_form.save()
+                messages.success(request, "Datos actualizados correctamente.")
+                return redirect('ajustes')
+            else:
+                messages.error(request, "Corrige los errores en el formulario de datos.")
+        elif 'password_submit' in request.POST:
+            profile_form = UserUpdateForm(instance=user)
+            password_form = SimplePasswordChangeForm(user=user, data=request.POST)
+            if password_form.is_valid():
+                user = password_form.save()
+                update_session_auth_hash(request, user)
+                messages.success(request, "Contraseña actualizada correctamente.")
+                return redirect('ajustes')
+            else:
+                messages.error(request, "Corrige los errores en el formulario de contraseña.")
+        else:
+            profile_form = UserUpdateForm(instance=user)
+            password_form = SimplePasswordChangeForm(user=user)
+    else:
+        profile_form = UserUpdateForm(instance=user)
+        password_form = SimplePasswordChangeForm(user=user)
+
+    # --- preparar mini-cart: cotizacion abierta y items (igual que en comparador_view) ---
+    cot = None
+    cot_items = []
+    if request.user.is_authenticated:
+        cot = Cotizacion.objects.filter(usuario=request.user, status='open').prefetch_related('items__producto', 'items__producto__supermercado').first()
+        if cot:
+            cot_items = list(cot.items.select_related('producto', 'producto__supermercado').all())
+
+    context = {
+        'profile_form': profile_form,
+        'password_form': password_form,
+        'cotizacion': cot,
+        'cot_items': cot_items,
+    }
+    return render(request, 'ajustes.html', context)
 
 
 def logout_view(request):
@@ -176,23 +267,40 @@ def signup(request):
 
 # 🔐 Login de usuarios
 def login_view(request):
+    """
+    Login personalizado:
+    - muestra mensajes en español con django.contrib.messages
+    - preserva el username para rellenar el input después de un intento fallido
+    - respeta el parámetro 'next' (redirige allí si existe)
+    """
+    # prioriza next en POST (form) o GET (por ejemplo redirección desde @login_required)
+    next_url = request.POST.get('next') or request.GET.get('next') or None
+
     if request.method == "POST":
-        username = request.POST.get("username")
-        password = request.POST.get("password")
+        username = request.POST.get("username", "").strip()
+        password = request.POST.get("password", "")
 
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
             login(request, user)
-            messages.success(request, f"¡Bienvenido {user.username}! Sesión iniciada correctamente.")
-            return redirect("comparador")
+            messages.success(request, f"¡Bienvenido/a, {user.username}! Sesión iniciada correctamente.")
+            # redirige al next si viene, sino al comparador
+            return redirect(next_url or "comparador")
         else:
-            messages.error(request, "Usuario o contraseña incorrectos.")
-    return render(request, "login.html")
+            # Mensaje genérico por seguridad (no revelar existencia de usuario)
+            messages.error(request, "Usuario o contraseña incorrectos. Intenta de nuevo.")
+            # continúa al render para mostrar el mensaje y mantener el campo username
+
+    # GET o POST fallido — render con prefill opcional del username
+    # (tu template ya usa request.POST.username, pero pasamos tambien por contexto por si quieres usarlo)
+    context = {
+        "username_prefill": request.POST.get("username", "") if request.method == "POST" else "",
+    }
+    return render(request, "login.html", context)
 
 # 🛒 Vista principal con productos por supermercado
 def comparador_view(request):
-    # Supermercados principales
     supermercados = Supermercado.objects.all().order_by('nombre')
 
     data_supermercados = []
@@ -201,8 +309,6 @@ def comparador_view(request):
             Producto.objects.filter(supermercado=s, disponible=True)
             .order_by('-fecha_actualizacion')[:10]
         )
-
-        # Asignar imagen por defecto si falta
         for p in productos:
             if not p.imagen_url:
                 p.imagen_url = "/static/img/placeholder.png"
@@ -212,13 +318,24 @@ def comparador_view(request):
             "productos": productos,
         })
 
-    # Categorías / tipos de producto
     tipos = Producto.objects.values_list('tipo', flat=True).distinct().order_by('tipo')
+
+    # --- NUEVO: obtener cotización abierta si el usuario está autenticado ---
+    cot = None
+    cot_items = []
+    if request.user.is_authenticated:
+        cot = Cotizacion.objects.filter(usuario=request.user, status='open').prefetch_related('items__producto').first()
+        if cot:
+            cot_items = list(cot.items.select_related('producto', 'producto__supermercado').all())
 
     return render(request, 'comparador.html', {
         "data_supermercados": data_supermercados,
         "tipos": tipos,
+        "cotizacion": cot,
+        "cot_items": cot_items,
     })
+    
+    
 # 📦 Productos por categoría
 def productos_por_categoria(request, tipo):
     productos = Producto.objects.filter(tipo__iexact=tipo).order_by('nombre', 'supermercado__nombre')
@@ -236,6 +353,8 @@ def producto_detalle(request, producto_id):
         'tipos': tipos
     })
     
+
+
 # 📦 Productos por categoría con filtros y ordenamiento
 def productos_por_categoria(request, tipo):
     # Filtrar productos por categoría
@@ -247,19 +366,19 @@ def productos_por_categoria(request, tipo):
     marca_filtro = request.GET.getlist('marca')
     tienda_filtro = request.GET.getlist('tienda')
 
-    # 🔍 Búsqueda
+    # Búsqueda
     if q:
         productos = productos.filter(nombre__icontains=q)
 
-    # 🏷️ Filtrar por marca
+    # Filtrar por marca
     if marca_filtro:
         productos = productos.filter(marca__in=marca_filtro)
 
-    # 🏬 Filtrar por tienda
+    # Filtrar por tienda
     if tienda_filtro:
         productos = productos.filter(supermercado__nombre__in=tienda_filtro)
 
-    # 🔽 Ordenar resultados
+    # Ordenar resultados
     if ordenar == "precio_asc":
         productos = productos.order_by("precio")
     elif ordenar == "precio_desc":
@@ -267,18 +386,16 @@ def productos_por_categoria(request, tipo):
     elif ordenar == "nombre_asc":
         productos = productos.order_by("nombre")
 
-    # ✅ Obtener marcas únicas, sin repetir y ordenadas
+    # Obtener marcas únicas
     marcas_query = (
         Producto.objects.filter(tipo__iexact=tipo)
         .exclude(marca__isnull=True)
         .exclude(marca__exact="")
         .values_list("marca", flat=True)
     )
-
-    # 🔤 Normalizar y eliminar duplicados
     marcas = sorted(set(m.strip().title() for m in marcas_query if m))
 
-    # ✅ Obtener tiendas únicas
+    # Obtener tiendas únicas
     tiendas = (
         Supermercado.objects.filter(productos__tipo__iexact=tipo)
         .values_list("nombre", flat=True)
@@ -286,7 +403,24 @@ def productos_por_categoria(request, tipo):
         .order_by("nombre")
     )
 
-    # 🧠 Pasar filtros seleccionados al contexto
+    # Asegurar placeholder en las imágenes (facilita render JS/HTML)
+    for p in productos:
+        if not p.imagen_url:
+            p.imagen_url = "/static/img/placeholder.png"
+
+    # --- Obtener cotización abierta y sus items (igual que en comparador_view) ---
+    cot = None
+    cot_items = []
+    if request.user.is_authenticated:
+        cot = (
+            Cotizacion.objects
+            .filter(usuario=request.user, status='open')
+            .prefetch_related('items__producto', 'items__producto__supermercado')
+            .first()
+        )
+        if cot:
+            cot_items = list(cot.items.select_related('producto', 'producto__supermercado').all())
+
     context = {
         "tipo": tipo,
         "productos": productos,
@@ -295,6 +429,9 @@ def productos_por_categoria(request, tipo):
         "marca_filtro": marca_filtro,
         "tienda_filtro": tienda_filtro,
         "ordenar": ordenar,
+        # mini-cart context:
+        "cotizacion": cot,
+        "cot_items": cot_items,
     }
 
     return render(request, "productos_categoria.html", context)

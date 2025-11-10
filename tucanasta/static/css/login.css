@@ -1,146 +1,79 @@
-/* === Reset básico === */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-/* === Fondo con degradado y efecto dinámico === */
 body {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #0a0a0f, #1a1a25);
-  color: #f5f5f5;
-  overflow: hidden;
-}
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0099ff 0%, #00d4ff 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
-/* === Contenedor principal === */
-form {
-  background: rgba(20, 20, 30, 0.85);
-  backdrop-filter: blur(8px);
-  padding: 3rem 2.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 0 20px rgba(0, 200, 255, 0.25);
-  width: 100%;
-  max-width: 400px;
-  animation: fadeIn 0.8s ease-out;
-  border: 1px solid rgba(0, 200, 255, 0.1);
-}
+    .login-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 35px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      animation: slideUp 0.8s ease forwards;
+    }
 
-h1 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  font-size: 2rem;
-  color: #00c8ff;
-  letter-spacing: 1px;
-}
+    @keyframes slideUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
 
-/* === Campos de texto === */
-label {
-  font-size: 0.9rem;
-  font-weight: 500;
-}
+    .login-card h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #0078ff;
+      font-weight: 600;
+    }
 
-input[type="text"],
-input[type="password"] {
-  width: 100%;
-  padding: 0.8rem;
-  margin-top: 0.4rem;
-  margin-bottom: 1rem;
-  border-radius: 0.5rem;
-  border: none;
-  outline: none;
-  background: #14141d;
-  color: #fff;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  border: 1px solid transparent;
-}
+    .form-control:focus {
+      box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+      border-color: #007bff;
+    }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
-  border: 1px solid #00c8ff;
-  box-shadow: 0 0 8px rgba(0, 200, 255, 0.5);
-}
+    .btn-login {
+      width: 100%;
+      background: #0078ff;
+      color: white;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      padding: 10px;
+      transition: background 0.3s;
+    }
 
-/* === Botón principal === */
-button {
-  width: 100%;
-  background: linear-gradient(90deg, #00c8ff, #0077ff);
-  color: #fff;
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.9rem;
-  font-size: 1.1rem;
-  cursor: pointer;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
-}
+    .btn-login:hover {
+      background: #005ecb;
+    }
 
-button:hover {
-  background: linear-gradient(90deg, #00e0ff, #0095ff);
-  box-shadow: 0 0 12px rgba(0, 200, 255, 0.6);
-  transform: scale(1.03);
-}
+    .extra-links {
+      text-align: center;
+      margin-top: 15px;
+    }
 
-/* === Enlaces === */
-a {
-  color: #00c8ff;
-  text-decoration: none;
-  transition: color 0.3s;
-}
+    .extra-links a {
+      color: #0078ff;
+      text-decoration: none;
+      font-weight: 500;
+    }
 
-a:hover {
-  color: #00e0ff;
-}
+    .extra-links a:hover {
+      text-decoration: underline;
+    }
 
-/* === Textos secundarios === */
-p {
-  text-align: center;
-  margin-top: 1rem;
-  font-size: 0.95rem;
-}
+    .input-group-text {
+      cursor: pointer;
+    }
 
-/* === Mensaje de error === */
-p[style*="color:red"] {
-  background: rgba(255, 0, 0, 0.15);
-  border-left: 4px solid #ff4444;
-  padding: 0.5rem;
-  border-radius: 0.3rem;
-  text-align: center;
-}
-
-/* === Animaciones === */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* === Responsividad === */
-@media (max-width: 480px) {
-  body {
-    padding: 1rem;
-  }
-
-  form {
-    padding: 2rem 1.5rem;
-  }
-
-  h1 {
-    font-size: 1.7rem;
-  }
-
-  button {
-    font-size: 1rem;
-  }
-}
+    .alert {
+      font-size: 0.9rem;
+      padding: 8px 12px;
+      border-left: 5px solid #00b7ff;
+      border-radius: 6px;
+      background: rgba(0,183,255,0.1);
+      margin-bottom: 15px;
+    }
