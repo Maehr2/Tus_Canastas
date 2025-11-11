@@ -1,0 +1,156 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Revisar — Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background:#f6f8fa; }
+    .card-pyme, .card-product { border-radius:10px; border:1px solid #e6e9ee; background:#fff; }
+    .card-pyme:hover, .card-product:hover { box-shadow:0 6px 18px rgba(0,0,0,0.06); transform:translateY(-2px); }
+    .small-muted { color:#6c757d; }
+    .meta-line { font-size:0.9rem; color:#6c757d; }
+    .doc-link { font-size:0.9rem; display:block; margin-top:6px; }
+    .section-title { margin-bottom:16px; }
+  </style>
+</head>
+<body class="bg-light">
+  <main class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <div>
+        <h3 class="mb-0">Panel de Revisión</h3>
+        <small class="text-muted">Revisa PYMEs y productos pendientes</small>
+      </div>
+      <div>
+        <a href="{% url 'comparador' %}" class="btn btn-outline-secondary">Volver al sitio</a>
+      </div>
+    </div>
+
+    {% if messages %}
+      {% for m in messages %}
+        <div class="alert alert-{{ m.tags|default:'info' }}">{{ m }}</div>
+      {% endfor %}
+    {% endif %}
+
+    <!-- ======================
+         PYMEs pendientes
+         ====================== -->
+    {% if pymes_pendientes %}
+      <h4 class="section-title">PYMEs pendientes de verificación</h4>
+      <div class="row g-3 mb-4">
+        {% for py in pymes_pendientes %}
+          <div class="col-md-6">
+            <div class="p-3 card-pyme">
+              <div class="d-flex align-items-start gap-3">
+                <div>
+                  <h5 class="mb-1">{{ py.nombre }}</h5>
+                  <div class="meta-line">
+                    Usuario: <strong>{{ py.user.username }}</strong> · {{ py.user.email }}<br>
+                    Creado: {{ py.fecha_creacion|date:"Y-m-d H:i" }} · Dirección: {{ py.direccion|default:"—" }}
+                  </div>
+
+                  {% if py.web %}
+                    <div class="doc-link"><a href="{{ py.web }}" target="_blank" class="text-decoration-none small">Sitio web de la Pyme →</a></div>
+                  {% endif %}
+
+                  {% if py.documento %}
+                    <div class="doc-link">
+                      <a href="{{ py.documento.url }}" target="_blank" class="text-decoration-none small">📄 Descargar documento / Comprobante</a>
+                    </div>
+                  {% endif %}
+                </div>
+
+                <div class="ms-auto text-end">
+                  <div class="mb-2">
+                    <span class="badge bg-info text-dark">PYME</span>
+                    {% if py.approved %}
+                      <span class="badge bg-success">Aprobada</span>
+                    {% else %}
+                      <span class="badge bg-warning text-dark">Pendiente</span>
+                    {% endif %}
+                  </div>
+
+                  <div class="d-flex flex-column align-items-end gap-2">
+                    <!-- Aprobar Pyme -->
+                    <form method="post" action="{% url 'aprobar_pyme' py.pk %}">
+                      {% csrf_token %}
+                      <button class="btn btn-sm btn-success" type="submit" onclick="return confirm('Aprobar esta Pyme?')">Aprobar Pyme</button>
+                    </form>
+
+                    <!-- Rechazar Pyme -->
+                    <form method="post" action="{% url 'rechazar_pyme' py.pk %}">
+                      {% csrf_token %}
+                      <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Rechazar y eliminar esta Pyme?')">Rechazar Pyme</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <!-- ======================
+         Productos pendientes
+         ====================== -->
+    <h4 class="section-title">Productos pendientes de revisión</h4>
+
+    {% if pendientes %}
+      <div class="row g-3">
+        {% for p in pendientes %}
+          <div class="col-md-6">
+            <div class="list-group-item mb-0 p-3 card-product">
+              <div class="row align-items-center">
+                <div class="col-3">
+                  {% if p.imagen_url %}
+                    <img src="{{ p.imagen_url }}" alt="" style="width:100%; height:84px; object-fit:cover; border-radius:6px; border:1px solid #eee;">
+                  {% else %}
+                    <img src="{% static 'img/placeholder.png' %}" alt="" style="width:100%; height:84px; object-fit:cover; border-radius:6px; border:1px solid #eee;">
+                  {% endif %}
+                </div>
+
+                <div class="col-6">
+                  <strong>{{ p.nombre }}</strong><br>
+                  <div class="small-muted">{{ p.marca }} · {{ p.tipo }}</div>
+                  <div class="meta-line mt-1">Tienda: <strong>{{ p.supermercado.nombre }}</strong></div>
+                  <div class="meta-line">Enviado: {{ p.fecha_actualizacion|date:"Y-m-d H:i" }}</div>
+
+                  {% if p.producto_url %}
+                    <div class="mt-1"><a href="{{ p.producto_url }}" target="_blank" class="small text-decoration-none">Ver en tienda →</a></div>
+                  {% endif %}
+                </div>
+
+                <div class="col-3 text-end">
+                  <div class="fw-bold mb-2">${{ p.precio|floatformat:0 }} {{ p.moneda }}</div>
+
+                  <div class="d-flex justify-content-end gap-1">
+                    <a href="{% url 'editar_producto_admin' p.pk %}" class="btn btn-sm btn-outline-primary">Editar</a>
+
+                    <form method="post" action="{% url 'aprobar_producto' p.pk %}" style="display:inline;">
+                      {% csrf_token %}
+                      <button class="btn btn-sm btn-success" type="submit" onclick="return confirm('Aprobar y publicar este producto?')">Aprobar</button>
+                    </form>
+
+                    <form method="post" action="{% url 'rechazar_producto' p.pk %}" style="display:inline;">
+                      {% csrf_token %}
+                      <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Rechazar y eliminar este producto?')">Rechazar</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="alert alert-secondary">No hay productos pendientes.</div>
+    {% endif %}
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

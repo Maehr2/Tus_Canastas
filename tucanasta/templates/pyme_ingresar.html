@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tucanasta — Ingresar producto (Pyme)</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <style>
+    /* Pequeños ajustes estéticos */
+    .pyme-card { max-width: 960px; margin: 1.5rem auto; }
+    .form-section { background: #fff; border-radius: 12px; padding: 1.25rem; box-shadow: 0 6px 18px rgba(18,18,18,0.04); }
+    .help-text { font-size: .9rem; color: #6c757d; }
+  </style>
+</head>
+<body class="bg-light">
+
+  <!-- NAV: puedes copiar exactamente el nav de comparador para consistencia -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+    <div class="container-fluid">
+      <button class="btn btn-outline-light me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCategorias" aria-controls="offcanvasCategorias">☰</button>
+      <a class="navbar-brand d-flex align-items-center" href="{% url 'comparador' %}">
+        <img src="{% static 'img/logotucan.png' %}" alt="Tucanasta" class="logo-img me-2" style="height:28px;">
+        <span class="brand-text">Tucanasta</span>
+      </a>
+
+      <div class="ms-auto d-flex align-items-center gap-2">
+        <a href="{% url 'comparador' %}" class="btn btn-outline-light">Volver al comparador</a>
+        {% if user.is_authenticated %}
+          <a href="{% url 'pyme_ingresar' %}" class="btn btn-success">💼 Nuevo producto</a>
+        {% else %}
+          <a href="{% url 'login' %}?next={% url 'pyme_ingresar' %}" class="btn btn-success">Inicia sesión para publicar</a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mt-5 pt-4">
+    <div class="pyme-card">
+      <div class="form-section">
+        <h3 class="mb-1">Ingresar producto (Pyme)</h3>
+        <p class="help-text mb-3">Rellena los datos del producto. Puedes seleccionar un supermercado existente o crear uno nuevo abajo.</p>
+
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %} alert-sm" role="alert">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+
+        <form method="post" novalidate>
+          {% csrf_token %}
+          <div class="row g-3">
+            <div class="col-12 col-md-8">
+              <label class="form-label">Nombre</label>
+              {{ form.nombre }}
+              {% if form.nombre.errors %}<div class="text-danger small">{{ form.nombre.errors }}</div>{% endif %}
+            </div>
+            <div class="col-12 col-md-4">
+              <label class="form-label">Marca</label>
+              {{ form.marca }}
+              {% if form.marca.errors %}<div class="text-danger small">{{ form.marca.errors }}</div>{% endif %}
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Categoría / Tipo</label>
+              {{ form.tipo }}
+              {% if form.tipo.errors %}<div class="text-danger small">{{ form.tipo.errors }}</div>{% endif %}
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Precio</label>
+              <div class="input-group">
+                {{ form.precio }}
+                <span class="input-group-text">{{ form.moneda.value|default:"CLP" }}</span>
+              </div>
+              {% if form.precio.errors %}<div class="text-danger small">{{ form.precio.errors }}</div>{% endif %}
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">Descripción</label>
+              {{ form.descripcion }}
+              {% if form.descripcion.errors %}<div class="text-danger small">{{ form.descripcion.errors }}</div>{% endif %}
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Imagen (URL)</label>
+              {{ form.imagen_url }}
+              <div class="form-text">URL pública de la imagen (opcional).</div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">URL del producto en tienda</label>
+              {{ form.producto_url }}
+              <div class="form-text">Enlace al producto en la tienda (opcional).</div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Supermercado existente</label>
+              {{ form.supermercado }}
+              <div class="form-text">Selecciona un supermercado si existe en la lista.</div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">O crea uno nuevo</label>
+              <div class="row g-2">
+                <div class="col-12">
+                  <input type="text" id="new_supermercado_name" name="new_supermercado_name" class="form-control" placeholder="Nombre nuevo supermercado (ej: Mi Pyme)" />
+                </div>
+                <div class="col-12">
+                  <input type="url" id="new_supermercado_url" name="new_supermercado_url" class="form-control" placeholder="https://..." />
+                  <div class="form-text">Si completas el nombre, se creará la tienda automáticamente.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+              <div class="form-check mt-2">
+                {{ form.disponible }} <label class="form-check-label">Disponible</label>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+              <label class="form-label">Código interno / SKU</label>
+              {{ form.codigo_interno }}
+            </div>
+
+            <div class="col-12 text-end">
+              <a href="{% url 'comparador' %}" class="btn btn-outline-secondary me-2">Cancelar</a>
+              <button type="submit" class="btn btn-primary">Enviar producto</button>
+            </div>
+          </div>
+        </form>
+
+        <hr class="my-4">
+
+        <p class="small text-muted mb-0">Al enviar aceptas que los datos sean revisados y publicados según las políticas de Tucanasta. Puedes editar tu producto posteriormente desde tu cuenta.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center text-muted py-4 mt-4 bg-white">
+    © 2025 Tucanasta.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // UX: si se completa "nuevo supermercado", deseleccionar select para evitar confusión
+    const newName = document.getElementById('new_supermercado_name');
+    const superSelect = document.querySelector('select[name="supermercado"]');
+
+    newName?.addEventListener('input', () => {
+      if (newName.value.trim().length > 0){
+        if (superSelect) superSelect.value = '';
+      }
+    });
+
+    // Validación cliente simple: precio positivo
+    const form = document.querySelector('form');
+    form?.addEventListener('submit', (e) => {
+      const precio = parseFloat(document.querySelector('input[name="precio"]').value || 0);
+      if (isNaN(precio) || precio < 0){
+        e.preventDefault();
+        alert('Ingresa un precio válido (número positivo).');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -9,13 +9,22 @@ from .models import Producto, Supermercado
 from django.http import JsonResponse, HttpResponseRedirect
 from django.contrib.auth import update_session_auth_hash
 from django.urls import reverse
+from django.contrib.admin.views.decorators import staff_member_required
 from .forms import CustomUserCreationForm
 from django.utils import timezone
+from django.core.mail import send_mail
 from .forms import UserUpdateForm, SimplePasswordChangeForm
 # importa modelos (incluye Cotizacion y CotizacionItem)
 from .models import Producto, Supermercado, Cotizacion, CotizacionItem
-
-
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from .forms import PymeProductForm
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from .forms import PymeRegistrationForm, PymeProductForm
+from .models import Pyme, Supermercado, Producto
+from django.shortcuts import redirect
+from django.conf import settings
 
 # --- agregar_cotizacion ---
 
@@ -234,11 +243,141 @@ def logout_view(request):
 
 
 
+# en tucanasta/views.py (al principio de archivo ya tienes imports; añade:)
+
+
+@login_required
+def pyme_ingresar(request):
+    """
+    Página para que PYMES ingresen productos.
+    - Permite seleccionar supermercado existente o crear uno nuevo (new_supermercado_name).
+    - Requiere login.
+    """
+    # preparar mini-cart (igual que en otras vistas para mantener consistencia UI)
+    cot = None
+    cot_items = []
+    if request.user.is_authenticated:
+        cot = Cotizacion.objects.filter(usuario=request.user, status='open').prefetch_related('items__producto').first()
+        if cot:
+            cot_items = list(cot.items.select_related('producto', 'producto__supermercado').all())
+
+    if request.method == "POST":
+        form = PymeProductForm(request.POST)
+        new_super_name = request.POST.get('new_supermercado_name', '').strip()
+        new_super_url = request.POST.get('new_supermercado_url', '').strip()
+
+        # Validamos que haya supermercado seleccionado o uno nuevo
+        if not form.cleaned_data if not form.is_bound else False:
+            # just continue -- form.is_valid will check fields
+            pass
+
+        if form.is_valid():
+            # Si el usuario quiere crear supermercado nuevo:
+            if new_super_name:
+                supermercado, created = Supermercado.objects.get_or_create(
+                    nombre=new_super_name,
+                    defaults={'url_principal': new_super_url or None}
+                )
+            else:
+                supermercado = form.cleaned_data.get('supermercado')
+
+            if not supermercado:
+                messages.error(request, "Debes seleccionar un supermercado o crear uno nuevo.")
+            else:
+                producto = form.save(commit=False)
+                producto.supermercado = supermercado
+                producto.save()
+                messages.success(request, "Producto agregado correctamente. Será visible después de revisión.")
+                return redirect('producto_detalle', producto_id=producto.pk)
+        else:
+            messages.error(request, "Corrige los errores del formulario.")
+    else:
+        form = PymeProductForm()
+
+    context = {
+        'form': form,
+        'cotizacion': cot,
+        'cot_items': cot_items,
+    }
+    return render(request, 'pyme_ingresar.html', context)
 
 
 
 
+@login_required
+def pyme_registro(request):
+    # si ya tiene pyme, redirige al dashboard
+    if hasattr(request.user, 'pyme'):
+        messages.info(request, "Ya tienes una cuenta Pyme. Accediendo al panel.")
+        return redirect('pyme_dashboard')
 
+    if request.method == 'POST':
+        form = PymeRegistrationForm(request.POST, request.FILES)
+        if form.is_valid():
+            pyme = form.save(commit=False)
+            pyme.user = request.user
+            # crear Supermercado con el nombre de la pyme (si no existe)
+            supermercado, created = Supermercado.objects.get_or_create(
+                nombre=pyme.nombre,
+                defaults={'url_principal': pyme.web or None}
+            )
+            pyme.supermercado = supermercado
+            pyme.approved = False
+            # guardar documento si subido (form ya lo maneja)
+            pyme.save()
+            messages.success(request, "Registro Pyme creado. Tu tienda quedó pendiente de revisión.")
+            return redirect('pyme_dashboard')
+        else:
+            print("DEBUG PymeRegistrationForm errors:", form.errors.as_json())
+            messages.error(request, "Corrige los errores del formulario.")
+    else:
+        form = PymeRegistrationForm()
+
+@login_required
+def pyme_dashboard(request):
+    # preparar mini-cart (si quieres mantener coherencia con header)
+    cot = None
+    cot_items = []
+    if request.user.is_authenticated:
+        cot = Cotizacion.objects.filter(usuario=request.user, status='open').prefetch_related('items__producto').first()
+        if cot:
+            cot_items = list(cot.items.select_related('producto', 'producto__supermercado').all())
+
+    # asegurar que la cuenta pyme exista
+    pyme = getattr(request.user, 'pyme', None)
+    if not pyme:
+        messages.info(request, "Primero crea tu Pyme.")
+        return redirect('pyme_registro')
+
+    productos = Producto.objects.filter(supermercado=pyme.supermercado).order_by('-fecha_actualizacion')
+
+    if request.method == 'POST':
+        form = PymeProductForm(request.POST)
+        if form.is_valid():
+            producto = form.save(commit=False)
+            # precio viene limpio desde form.cleaned_data['precio'] (float)
+            producto.precio = form.cleaned_data['precio']
+            producto.moneda = form.cleaned_data['moneda']
+            producto.supermercado = pyme.supermercado
+            producto.disponible = False  # pendiente revisión
+            producto.save()
+            messages.success(request, "Producto enviado. Quedará pendiente de revisión.")
+            return redirect('pyme_dashboard')
+        else:
+            # debug server: imprimir errores en consola del runserver
+            print("DEBUG PymeProductForm errors:", form.errors.as_json())
+            messages.error(request, "Corrige los errores del formulario. Revisa los detalles en cada campo.")
+    else:
+        form = PymeProductForm(initial={'moneda': 'CLP'})
+
+    context = {
+        'pyme': pyme,
+        'form': form,
+        'productos': productos,
+        'cotizacion': cot,
+        'cot_items': cot_items,
+    }
+    return render(request, 'pyme_dashboard.html', context)
 
 
 
@@ -359,7 +498,7 @@ def producto_detalle(request, producto_id):
 def productos_por_categoria(request, tipo):
     # Filtrar productos por categoría
     productos = Producto.objects.filter(tipo__iexact=tipo, disponible=True)
-
+    tipos = Producto.objects.values_list('tipo', flat=True).distinct().order_by('tipo')
     # Filtros GET
     q = request.GET.get('q')
     ordenar = request.GET.get('ordenar')
@@ -423,6 +562,7 @@ def productos_por_categoria(request, tipo):
 
     context = {
         "tipo": tipo,
+        "tipos": tipos,
         "productos": productos,
         "marcas": marcas,
         "tiendas": tiendas,
@@ -435,3 +575,89 @@ def productos_por_categoria(request, tipo):
     }
 
     return render(request, "productos_categoria.html", context)
+
+@staff_member_required
+@require_POST
+def aprobar_pyme(request, pk):
+    pyme = get_object_or_404(Pyme, pk=pk)
+    pyme.approved = True
+    pyme.save()
+
+    # opcional: notificar por mensaje y por email (si configuras email)
+    messages.success(request, f'Pyme "{pyme.nombre}" aprobada y activada.')
+    # ejemplo email (requiere config email)
+    # send_mail('Tu Pyme fue aprobada', 'Tu Pyme ha sido aprobada...', 'from@example.com', [pyme.user.email])
+
+    return redirect('revisar_productos')
+
+@staff_member_required
+@require_POST
+def rechazar_pyme(request, pk):
+    pyme = get_object_or_404(Pyme, pk=pk)
+    nombre = pyme.nombre
+    # opcional: elimina la pyme y no tocar supermercado
+    pyme.delete()
+    messages.info(request, f'Pyme "{nombre}" rechazada y eliminada.')
+    return redirect('revisar_productos')
+
+
+
+def revisar_productos(request):
+    pendientes = Producto.objects.filter(disponible=False).select_related('supermercado').order_by('-fecha_actualizacion')
+    pymes_pendientes = Pyme.objects.filter(approved=False).select_related('user').order_by('-fecha_creacion')
+    return render(request, 'panel-admin/revisar_productos.html', {
+        'pendientes': pendientes,
+        'pymes_pendientes': pymes_pendientes,
+    })
+
+@staff_member_required
+@require_POST
+def aprobar_producto(request, pk):
+    """
+    Aprobar (publicar) un producto -> disponible = True
+    POST only.
+    """
+    producto = get_object_or_404(Producto, pk=pk)
+    producto.disponible = True
+    producto.save()
+    messages.success(request, f'Producto "{producto.nombre}" aprobado y publicado.')
+    # opcional: mandar notificación/email a la pyme (no implementado aquí)
+    return redirect('revisar_productos')
+
+
+@staff_member_required
+@require_POST
+def rechazar_producto(request, pk):
+    """
+    Rechazar producto. Por simplicidad lo borramos.
+    Si prefieres mantener un historial, cambia esto para marcar un campo 'rechazado' en el modelo.
+    """
+    producto = get_object_or_404(Producto, pk=pk)
+    nombre = producto.nombre
+    producto.delete()
+    messages.info(request, f'Producto "{nombre}" rechazado y eliminado.')
+    return redirect('revisar_productos')
+
+
+
+@staff_member_required
+def editar_producto_admin(request, pk):
+    producto = get_object_or_404(Producto, pk=pk)
+
+    if request.method == "POST":
+        # USAR EL MISMO FORMULARIO DE PYME ✅
+        form = PymeProductForm(request.POST, instance=producto)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Producto actualizado correctamente.")
+            return redirect('revisar_productos')
+        else:
+            messages.error(request, "Hay errores en el formulario, revisa los campos.")
+    else:
+        form = PymeProductForm(instance=producto)
+
+    return render(request, "panel-admin/editar_producto.html", {
+        "form": form,
+        "producto": producto,
+    })

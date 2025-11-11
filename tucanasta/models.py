@@ -92,3 +92,22 @@ class CotizacionItem(models.Model):
 
     def __str__(self):
         return f'{self.producto.nombre} x{self.cantidad} en cot #{self.cotizacion.pk}'
+    
+    
+class Pyme(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='pyme')
+    nombre = models.CharField(max_length=150)
+    telefono = models.CharField(max_length=50, blank=True, null=True)
+    web = models.URLField(blank=True, null=True)
+    direccion = models.CharField(max_length=255, blank=True, null=True)
+    descripcion = models.TextField(blank=True, null=True)
+    supermercado = models.OneToOneField(Supermercado, on_delete=models.CASCADE, related_name='pyme', null=True, blank=True)
+    approved = models.BooleanField(default=False)  # para revisión/admin
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+
+    # NUEVO: documento adjunto para verificación
+    documento = models.FileField(upload_to='pyme_docs/', blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.nombre} ({self.user.username})"
+    
