@@ -1,0 +1,69 @@
+/* main.css - estilos para carrusel horizontal tipo Knasta + cards */
+
+body { font-family: "Segoe UI", sans-serif; background: #f8fafc; padding-top: 72px; }
+
+/* brand */
+.logo-img { height: 36px; width: auto; }
+.brand-text { color: #e6ffef; font-weight: 700; }
+
+/* supermercado title */
+.supermercado-title { font-size: 1.05rem; font-weight: 700; color: #0f172a; }
+
+/* track (contenedor horizontal) */
+.productos-track {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+}
+.productos-track.dragging { cursor: grabbing; cursor: -webkit-grabbing; }
+
+/* product card */
+.product-card {
+  min-width: 210px;
+  max-width: 220px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 0;
+  transition: transform .15s ease, box-shadow .15s ease;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.06);
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(15,23,42,0.12);
+}
+
+/* image */
+.product-img { object-fit: contain; max-height: 140px; }
+
+/* price & button */
+.price { font-size: 1rem; }
+.add-btn { background-color: #10b981; border-color: #10b981; }
+.add-btn:hover { background-color: #059669; border-color: #059669; }
+
+/* carousel arrow controls (desktop) */
+.carousel-arrow {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(2,6,23,0.55);
+  color: #fff;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.left-arrow { left: 6px; }
+.right-arrow { right: 6px; }
+
+/* small screens: hide arrow controls and make full-width track */
+@media (max-width: 767px) {
+  .carousel-arrow { display: none; }
+  .product-card { min-width: 170px; max-width: 180px; }
+  .logo-img { height: 30px; }
+}

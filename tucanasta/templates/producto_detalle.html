@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h2>{{ producto.nombre }}</h2>
+  <p>{{ producto.descripcion }}</p>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+    {% for p in similares %}
+      <div class="col">
+        <div class="card h-100 text-center shadow-sm">
+          {% if p.imagen_url %}
+            <img src="{{ p.imagen_url }}" class="card-img-top" alt="{{ p.nombre }}">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ p.supermercado.nombre }}</h5>
+            <p class="card-text"><strong>${{ p.precio }}</strong> {{ p.moneda }}</p>
+            <a href="{{ p.producto_url }}" target="_blank" class="btn btn-outline-primary">Ver en tienda</a>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p>No hay comparaciones disponibles.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

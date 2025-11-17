@@ -1,0 +1,174 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Mi Cotización — Tucanasta</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Estilos globales -->
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+  <style>
+    /* Estilos específicos de la página */
+    body { background-color: #f8fafc; }
+    .product-thumb {
+      width: 80px; height: 80px; object-fit: contain;
+      background: #fff; border-radius: 8px; border: 1px solid #e5e7eb;
+      padding: 6px;
+    }
+    .qty-input { max-width: 80px; text-align: center; }
+    .remove-item { white-space: nowrap; }
+    .table td, .table th { vertical-align: middle; }
+    .shadow-card { box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+  </style>
+</head>
+
+<body>
+
+  <div class="container py-4">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h3 class="fw-bold mb-0">🧾 Mi cotización</h3>
+      <div>
+        <button id="save-cot" class="btn btn-success">💾 Guardar cotización</button>
+        <a href="{% url 'comparador' %}" class="btn btn-outline-secondary ms-2">↩ Seguir cotizando</a>
+      </div>
+    </div>
+
+    <!-- Tabla de productos -->
+    {% if items %}
+      <div class="table-responsive bg-white shadow-card rounded-3">
+        <table class="table mb-0 align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Producto</th>
+              <th>Supermercado</th>
+              <th class="text-end">Precio unidad</th>
+              <th class="text-center">Cantidad</th>
+              <th class="text-end">Subtotal</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="cot-items">
+            {% for it in items %}
+              <tr data-item-id="{{ it.pk }}">
+                <td style="min-width:300px;">
+                  <div class="d-flex align-items-center gap-3">
+                    <img src="{{ it.producto.imagen_url|default:'/static/img/placeholder.png' }}"
+                         class="product-thumb" alt="{{ it.producto.nombre }}">
+                    <div>
+                      <div class="fw-semibold">{{ it.producto.nombre }}</div>
+                      <div class="text-muted small">{{ it.producto.marca }} — {{ it.producto.tipo }}</div>
+                    </div>
+                  </div>
+                </td>
+                <td>{{ it.producto.supermercado.nombre }}</td>
+                <td class="text-end">${{ it.precio_unidad|floatformat:0 }}</td>
+                <td class="text-center">
+                  <div class="d-flex justify-content-center align-items-center">
+                    <button type="button" class="btn btn-sm btn-outline-secondary dec-btn">−</button>
+                    <input type="number" class="form-control form-control-sm mx-2 qty-input"
+                           value="{{ it.cantidad }}" min="1">
+                    <button type="button" class="btn btn-sm btn-outline-secondary inc-btn">+</button>
+                  </div>
+                </td>
+                <td class="text-end subtotal">${{ it.subtotal|floatformat:0 }}</td>
+                <td class="text-end">
+                  <button type="button" class="btn btn-sm btn-danger remove-item">🗑 Eliminar</button>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Total -->
+      <div class="mt-4 d-flex justify-content-end">
+        <div class="text-end">
+          <div class="text-muted">Total estimado</div>
+          <div class="fs-4 fw-bold text-success" id="cot-total">${{ cotizacion.total|floatformat:0 }}</div>
+        </div>
+      </div>
+
+    {% else %}
+      <!-- Si no hay productos -->
+      <div class="alert alert-info text-center py-4">
+        No hay productos en tu cotización.<br>
+        <a href="{% url 'comparador' %}" class="alert-link">Agrega desde el comparador.</a>
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // === CSRF helper ===
+    function getCookie(name) {
+      const cookies = document.cookie.split(';').map(c => c.trim());
+      for (const cookie of cookies) {
+        if (cookie.startsWith(name + '=')) {
+          return decodeURIComponent(cookie.split('=')[1]);
+        }
+      }
+      return null;
+    }
+    const csrftoken = getCookie('csrftoken');
+
+    // === Helper para peticiones POST ===
+    async function postJSON(url, data) {
+      const resp = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'X-CSRFToken': csrftoken,
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+        body: new URLSearchParams(data)
+      });
+      return resp.json();
+    }
+
+    // === Lógica de interacción ===
+    document.querySelectorAll('#cot-items tr').forEach(row => {
+      const itemId = row.dataset.itemId;
+      const qtyInput = row.querySelector('.qty-input');
+      const subtotalCell = row.querySelector('.subtotal');
+
+      row.querySelector('.inc-btn')?.addEventListener('click', () => updateQty(itemId, +qtyInput.value + 1));
+      row.querySelector('.dec-btn')?.addEventListener('click', () => updateQty(itemId, Math.max(1, +qtyInput.value - 1)));
+      qtyInput?.addEventListener('change', () => updateQty(itemId, Math.max(1, +qtyInput.value || 1)));
+
+      row.querySelector('.remove-item')?.addEventListener('click', async () => {
+        const res = await postJSON("{% url 'eliminar_item' %}", { item_id: itemId });
+        if (res.ok) {
+          row.remove();
+          document.getElementById('cot-total').innerText = '$' + parseFloat(res.total).toFixed(0);
+        }
+      });
+
+      async function updateQty(itemId, cantidad) {
+        qtyInput.value = cantidad;
+        const res = await postJSON("{% url 'actualizar_item' %}", { item_id: itemId, cantidad });
+        if (res.ok && res.total !== undefined) {
+          document.getElementById('cot-total').innerText = '$' + parseFloat(res.total).toFixed(0);
+        }
+      }
+    });
+
+    // === Guardar cotización ===
+document.getElementById('save-cot')?.addEventListener('click', async () => {
+  const res = await postJSON("{% url 'guardar_cotizacion' %}", {});
+  if (res.ok && res.cotizacion_id) {
+    // redirige a la lista de cotizaciones guardadas
+    window.location.href = "{% url 'mis_cotizaciones' %}";
+  } else {
+    alert(res.error || 'Error al guardar la cotización');
+  }
+});
+  </script>
+</body>
+</html>

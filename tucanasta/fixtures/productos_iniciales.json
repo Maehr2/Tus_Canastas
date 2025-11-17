@@ -1,0 +1,2480 @@
+[
+  {
+    "model": "tucanasta.supermercado",
+    "pk": 1,
+    "fields": {
+      "nombre": "Líder",
+      "url_principal": "https://www.lider.cl"
+    }
+  },
+  {
+    "model": "tucanasta.supermercado",
+    "pk": 2,
+    "fields": {
+      "nombre": "Jumbo",
+      "url_principal": "https://www.jumbo.cl"
+    }
+  },
+  {
+    "model": "tucanasta.supermercado",
+    "pk": 3,
+    "fields": {
+      "nombre": "Unimarc",
+      "url_principal": "https://www.unimarc.cl"
+    }
+  },
+  {
+    "model": "tucanasta.supermercado",
+    "pk": 4,
+    "fields": {
+      "nombre": "Santa Isabel",
+      "url_principal": "https://www.santaisabel.cl"
+    }
+  },
+  {
+  "model": "tucanasta.producto",
+  "pk": 1,
+  "fields": {
+    "nombre": "Arroz Grado 1 1kg",
+    "marca": "Tucapel",
+    "tipo": "Arroz",
+    "descripcion": "Grano largo ancho, categoría 1.",
+    "supermercado": 1,
+    "precio": "1790.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/09a421d4-527a-414a-814f-82ad77a290b1.ad59e216287d4e47aeca7c21a18f58cf.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/arroz-y-legumbres/arroz-grado-1-grano-largo-bolsa/00780142025014?channable=050ee76964003030373830313432303235303134ac&utm_source=google&utm_medium=pmax&utm_campaign=walp_sod_cl_performance-max_conversion_pmax-sod_nacional&utm_content=&utm_term=&gclsrc=aw.ds&gad_source=1&gad_campaignid=18096637909&gbraid=0AAAAAo2xgFwY8ZPutnK-5b53FdoLgDoNv&gclid=Cj0KCQiArOvIBhDLARIsAPwJXOYKqBa-r-rDNqInELv0-dg2fHYSAVIDn_KDvEK-MYRDXIVYKyUSvw8aAmcHEALw_wcB",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+  {
+  "model": "tucanasta.producto",
+  "pk": 2,
+  "fields": {
+    "nombre": "Arroz para sushi 2kg",
+    "marca": "Tucapel",
+    "tipo": "Arroz",
+    "descripcion": "Arroz para sushi 2kg",
+    "supermercado": 1,
+    "precio": "6520.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/6c3e3842-92b4-44a0-9331-b4306a5cad1d.746f462b7125960a6dfcc030403a63c3.webp?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://www.lider.cl/ip/arroz-y-legumbres/arroz-para-sushi-2kg/00780142000181?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+  {
+  "model": "tucanasta.producto",
+  "pk": 3,
+  "fields": {
+    "nombre": "Arroz Grado 2 Grano Largo y Delgado Bolsa, 1 kg",
+    "marca": "Lider",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Grado 2 Grano Largo y Delgado Bolsa, 1 kg",
+    "supermercado": 1,
+    "precio": "1390.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/c5de3dbf-e2bf-4532-8d36-ebededaf2f8e.f377d2591ea27de567064077dcae3373.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/nuestras-marcas/00780460822421?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 4,
+  "fields": {
+    "nombre": "Arroz Grado 1",
+    "marca": "Cuisine & Co",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Grado 1 Grano Largo y Delgado 1 kg",
+    "supermercado": 4,
+    "precio": "1870.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/268448-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-largo-fino-1-kg-cuisine-and-co-1845786/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 5,
+  "fields": {
+    "nombre": "Arroz Grado 2",
+    "marca": "Cuisine & Co",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Grado 2 Cuisine & Co Largo y Delgado 1 kg",
+    "supermercado": 4,
+    "precio": "1250.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/268449-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-largo-fino-1-kg-cuisine-and-co-1845787/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 6,
+  "fields": {
+    "nombre": "Arroz Grado 2 Máxima",
+    "marca": "Máxima",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Grado 2 Máxima Grano Largo Angosto 1 kg",
+    "supermercado": 4,
+    "precio": "1250.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/516668-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-grado-2-maxima-1-kg-grano-largo-angosto-1223046/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 7,
+  "fields": {
+    "nombre": "Arroz Grado 1 Miraflores ",
+    "marca": "Miraflores ",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Grado 1 Miraflores Grano Largo y Ancho 1 kg",
+    "supermercado": 4,
+    "precio": "2090.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/276491-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-grado-1-miraflores-1-kg-grano-largo-y-ancho/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 9,
+  "fields": {
+    "nombre": "Arroz Grado 1 Banquete ",
+    "marca": "Banquete",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Grado 1 Banquete Premium Grano Largo y Ancho 1 kg",
+    "supermercado": 4,
+    "precio": "2090.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/161771-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-grado-1-banquete-1-kg-premium-grano-largo-y-ancho/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+}
+,
+{
+  "model": "tucanasta.producto",
+  "pk": 10,
+  "fields": {
+    "nombre": "Arroz Grado 2 Tucapel ",
+    "marca": "Tucapel",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Grado 2 Tucapel Gran Selección Grano Largo y Ancho 1 kg",
+    "supermercado": 4,
+    "precio": "2130.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/184937-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-grado-2-tucapel-1-kg-gran-seleccion-grano-largo-y-ancho/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 11,
+  "fields": {
+    "nombre": "Arroz Grado 1 Tucapel",
+    "marca": "Tucapel",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Grado 1 Tucapel Gran Selección Grano Largo y Ancho 1 kg",
+    "supermercado": 4,
+    "precio": "2350.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/184933-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-grado-1-tucapel-gran-seleccion-grano-largo-y-ancho-1-kg/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 12,
+  "fields": {
+    "nombre": "Arroz Grado 2 Tucapel ",
+    "marca": "Tucapel",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Grado 2 Tucapel Blue Grano Largo y Delgado 1 kg",
+    "supermercado": 4,
+    "precio": "1790.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/184976-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-grado-2-tucapel-1-kg-blue-bonnet-grano-largo-y-delgado/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 13,
+  "fields": {
+    "nombre": "Arroz Grado 1 Tucapel ",
+    "marca": "Tucapel",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Grado 1 Tucapel Pregraneado Grano Largo 1 kg",
+    "supermercado": 4,
+    "precio": "1770.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/184934-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-grado-1-tucapel-1-kg-pregraneado-grano-largo/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 14,
+  "fields": {
+    "nombre": "Arroz Grado 1 Grano Largo",
+    "marca": "Cuisine & Co",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Grado 1 Grano Largo y Ancho 1 kg",
+    "supermercado": 4,
+    "precio": "2020.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/268459-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-cuisine-y-co-g1-grano-largo-ancho1kg/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 15,
+  "fields": {
+    "nombre": "Arroz Pregraneado",
+    "marca": "Miraflores",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Pregraneado Miraflores 1 kg",
+    "supermercado": 4,
+    "precio": "2490.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/180670-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-miraflores-1-kg-pregraneado-grado-1-grano-largo/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 16,
+  "fields": {
+    "nombre": "Arroz Tucapel Grado 2",
+    "marca": "Tucapel",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Tucapel Grado 2 500 g",
+    "supermercado": 4,
+    "precio": "1200.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/512657-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-miraflores-1-kg-pregraneado-grado-1-grano-largo/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 17,
+  "fields": {
+    "nombre": "Arroz Integral Grado 1",
+    "marca": "Cuisine & Co",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Integral Grado 1 Largo y Ancho 1 kg",
+    "supermercado": 4,
+    "precio": "2270.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/268462-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-integral-c-y-co-1-kg/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 18,
+  "fields": {
+    "nombre": "Arroz Pregraneado 1 kg",
+    "marca": "Cuisine & Co",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Pregraneado 1 kg",
+    "supermercado": 4,
+    "precio": "2050.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/268455-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-integral-c-y-co-1-kg/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 19,
+  "fields": {
+    "nombre": "Arroz Grado 2",
+    "marca": "Cuisine & Co",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Grado 2 grano Largo y Ancho 1 kg",
+    "supermercado": 4,
+    "precio": "1840.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/268455-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-cuisine-y-co-g2-grano-largo-ancho1kg/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 20,
+  "fields": {
+    "nombre": "Arroz Grado 2 ",
+    "marca": "Cuisine & Co",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Grado 2 grano Largo y Ancho 1 kg",
+    "supermercado": 4,
+    "precio": "1840.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/268460-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-cuisine-y-co-g2-grano-largo-ancho1kg/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+}
+,
+{
+  "model": "tucanasta.producto",
+  "pk": 21,
+  "fields": {
+    "nombre": "Arroz Basmati ",
+    "marca": "Cuisine & Co",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Basmati Cuisine & Co 400 g",
+    "supermercado": 4,
+    "precio": "1970.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/502159-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-basmati-cuisine-and-co-400g-2005273/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 22,
+  "fields": {
+    "nombre": "Arroz Grado 1 Banquete ",
+    "marca": "Banquete",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Grado 1 Banquete Premium Grano Largo 2 kg",
+    "supermercado": 4,
+    "precio": "4390.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/155779-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-grado-1-banquete-2-kg-envase-degradable/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+}
+,
+{
+  "model": "tucanasta.producto",
+  "pk": 23,
+  "fields": {
+    "nombre": "Arroz Grado 2",
+    "marca": "Miraflores",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Grado 2 Miraflores Grano Largo y Laminado 1 kg",
+    "supermercado": 4,
+    "precio": "2190.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/180782-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-miraflores-1-kg-grado-2-grano-largo-laminado/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 24,
+  "fields": {
+    "nombre": "Arroz Grado 2 Banquete ",
+    "marca": "Banquete",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Grado 2 Banquete Premium Grano Largo y Ancho 1 kg",
+    "supermercado": 4,
+    "precio": "2050.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/161767-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-grado-2-banquete-1-kg-premium-grano-largo-y-ancho/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 25,
+  "fields": {
+    "nombre": "Arroz Preparado Miraflores Chaufan 210 g",
+    "marca": "Miraflores",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Grado 2 Banquete Premium Grano Largo y Ancho 1 kg",
+    "supermercado": 4,
+    "precio": "1150.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/180822-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-especial-miraflores-sobre-210-g-preparado-chaufan/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 26,
+  "fields": {
+    "nombre": "Arroz Grado 1 Tucapel",
+    "marca": "Tucapel",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Grado 1 Tucapel Integral 1 kg",
+    "supermercado": 4,
+    "precio": "2790.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/184936-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-integral-tucapel-1-kg-grado-1/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+}
+,
+{
+  "model": "tucanasta.producto",
+  "pk": 27,
+  "fields": {
+    "nombre": "Arroz Preparado Miraflores Campesino",
+    "marca": "Miraflores",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Preparado Miraflores Campesino 210 g",
+    "supermercado": 4,
+    "precio": "1150.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/180511-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-especial-miraflores-210-g-campesino-listo-para-preparar/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 28,
+  "fields": {
+    "nombre": "Arroz Grado 1 Grano Largo",
+    "marca": "Cuisine & Co",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Grado 1 Grano Largo y Ancho 3 kg",
+    "supermercado": 4,
+    "precio": "5890.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/268461-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-g1-largo-ancho-c-y-co-3-kg/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 29,
+  "fields": {
+    "nombre": "Arroz Preparado Miraflores Champiñón",
+    "marca": "Miraflores",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Preparado Miraflores Champiñón 210 g",
+    "supermercado": 4,
+    "precio": "5890.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/180774-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-especial-miraflores-sobre-210-g-preparado-champinones/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+}
+,
+{
+  "model": "tucanasta.producto",
+  "pk": 30,
+  "fields": {
+    "nombre": "Arroz Preparado Miraflores Champiñón",
+    "marca": "Miraflores",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Preparado Miraflores Champiñón 210 g",
+    "supermercado": 4,
+    "precio": "1150.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/180774-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-especial-miraflores-sobre-210-g-preparado-champinones/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 31,
+  "fields": {
+    "nombre": "Arroz Basmati Miraflore",
+    "marca": "Miraflores",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Basmati Miraflores 400 g",
+    "supermercado": 4,
+    "precio": "2960.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/288004-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-basmati-grano-largo-y-delgado-400-g/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 32,
+  "fields": {
+    "nombre": "Arroz Basmati Miraflore",
+    "marca": "Miraflores",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Basmati Miraflores 400 g",
+    "supermercado": 4,
+    "precio": "2960.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/288004-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-basmati-grano-largo-y-delgado-400-g/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 33,
+  "fields": {
+    "nombre": "Arroz Preparado Primavera",
+    "marca": "Miraflores",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Preparado Primavera 210 g",
+    "supermercado": 4,
+    "precio": "1150.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/180773-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-especial-miraflores-sobre-210-g-preparado-primavera/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 34,
+  "fields": {
+    "nombre": "Arroz Especial Tucapel Preparado",
+    "marca": "Tucapel",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Especial Tucapel Preparado Curry Champiñón Sobre 210 g",
+    "supermercado": 4,
+    "precio": "970.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/184942-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-especial-tucapel-sobre-210-g-preparado-curry-champinon/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+}
+,
+{
+  "model": "tucanasta.producto",
+  "pk": 35,
+  "fields": {
+    "nombre": "Arroz Basmati Tucapel",
+    "marca": "Tucapel",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Basmati Tucapel 400 g",
+    "supermercado": 4,
+    "precio": "2390.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/264174-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-basmati-tucapel-400-grs-1955039/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 35,
+  "fields": {
+    "nombre": "Arroz Grado 1 Iansa",
+    "marca": "Iansa Agro",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Grado 1 Iansa Agro Gran Selección 1 kg",
+    "supermercado": 4,
+    "precio": "2750.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/518083-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-grado-1-largo-y-ancho-1-kg/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 36,
+  "fields": {
+    "nombre": "Arroz Preparado Miraflores",
+    "marca": "Miraflores",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Preparado Miraflores Curry 175 g",
+    "supermercado": 4,
+    "precio": "1150.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/180848-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-especial-miraflores-sobre-210-g-preparado-curry/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+}
+    ,
+{
+  "model": "tucanasta.producto",
+  "pk": 37,
+  "fields": {
+    "nombre": "Arroz Grado 1 Tucapel",
+    "marca": "Tucapel",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Grado 1 Tucapel Grano Largo Delgado 1 kg",
+    "supermercado": 4,
+    "precio": "2250.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/184931-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-tucapel-grado-1-blue-bonnet-1-kg/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+}
+   ,
+{
+  "model": "tucanasta.producto",
+  "pk": 38,
+  "fields": {
+    "nombre": "Arroz Grado 2 Tucapel",
+    "marca": "Tucapel",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Grado 2 Tucapel Grano Largo y Ancho Graneado 1 kg",
+    "supermercado": 4,
+    "precio": "1990.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/161773-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-grado-2-tucapel-1-kg-graneado-grano-largo-y-ancho/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+}   
+,
+{
+  "model": "tucanasta.producto",
+  "pk": 39,
+  "fields": {
+    "nombre": "Arroz Risotto Miraflores",
+    "marca": "Miraflores",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Risotto Miraflores 400 g",
+    "supermercado": 4,
+    "precio": "2210.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/186311-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-risotto-carnaroli-400-g/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+}   ,
+{
+  "model": "tucanasta.producto",
+  "pk": 40,
+  "fields": {
+    "nombre": "Arroz Grado 2 Iansa",
+    "marca": "Iansa Agro",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Grado 2 Iansa Agro 1 kg",
+    "supermercado": 4,
+    "precio": "2430.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/518100-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-grado-2-largo-y-ancho-1-kg/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+}    ,
+{
+  "model": "tucanasta.producto",
+  "pk": 41,
+  "fields": {
+    "nombre": "Arroz Preparado Miraflores Paella",
+    "marca": "Miraflores",
+    "tipo": "Arroz",
+    "descripcion": "Arroz Preparado Miraflores Paella 175 g",
+    "supermercado": 4,
+    "precio": "1150.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/180754-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/arroz-especial-miraflores-paella-175-g/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+}   , 
+{
+  "model": "tucanasta.producto",
+  "pk": 42,
+  "fields": {
+    "nombre": "Harina Selecta Sin Polvos de Hornear",
+    "marca": "Selecta",
+    "tipo": "Harina",
+    "descripcion": "Harina Selecta Sin Polvos de Hornear 1kg",
+    "supermercado": 2,
+    "precio": "1390.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/300202-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/harina-sin-polvos-de-hornear-selecta-1-kg-2/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 43,
+  "fields": {
+    "nombre": "Harina Selecta Con Polvos de Hornear",
+    "marca": "Selecta",
+    "tipo": "Harina",
+    "descripcion": "Harina Selecta Con Polvos de Hornear 1kg",
+    "supermercado": 2,
+    "precio": "1390.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/300147-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/harina-con-polvos-de-hornear-selecta-1-kg-2/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 44,
+  "fields": {
+    "nombre": "Harina Sin Polvos de Hornear",
+    "marca": "Cuisine & Co",
+    "tipo": "Harina",
+    "descripcion": "Harina Cuisine & Co Sin Polvos de Hornear 1 kg",
+    "supermercado": 2,
+    "precio": "1390.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/379781-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/harina-sin-polvo-de-hornear-1-kg/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 45,
+  "fields": {
+    "nombre": "Harina Collico de Fuerza",
+    "marca": "Collico",
+    "tipo": "Harina",
+    "descripcion": "Harina Collico de Fuerza 1 kg",
+    "supermercado": 2,
+    "precio": "1390.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/374621-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/harina-de-fuerza-collico-1-kg-1893326/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 46,
+  "fields": {
+    "nombre": "Harina con Polvos de Hornear",
+    "marca": "Cuisine & Co",
+    "tipo": "Harina",
+    "descripcion": "Harina con Polvos de Hornear 1 kg",
+    "supermercado": 2,
+    "precio": "1390.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/380124-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/har-cpol-1k-c-y-co/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 47,
+  "fields": {
+    "nombre": "Harina Selecta Sin Polvos de Hornear",
+    "marca": "Selecta",
+    "tipo": "Harina",
+    "descripcion": "Harina Selecta Sin Polvos de Hornear 3 kg",
+    "supermercado": 2,
+    "precio": "4390.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/347204-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/harina-sin-polvos-de-hornear-selecta-bolsa-3-kg-2/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 48,
+  "fields": {
+    "nombre": "Harina Sin Polvos de Hornear",
+    "marca": "Mont Blanc",
+    "tipo": "Harina",
+    "descripcion": "Harina  Sin Polvos de Hornear 1 kg",
+    "supermercado": 2,
+    "precio": "1380.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/347189-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/harina-sin-polvos-de-hornear-mont-blanc-bolsa-1-kg/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 49,
+  "fields": {
+    "nombre": "Harina Fuerza Sin Blanqueador 5 kg",
+    "marca": "La Estampa",
+    "tipo": "Harina",
+    "descripcion": "Harina Fuerza Sin Blanqueador 5 kg",
+    "supermercado": 2,
+    "precio": "9390.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/367653-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/harina-fuerza-sin-blanqueador-5-kg/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 50,
+  "fields": {
+    "nombre": "Harina Flor Collico Sin Polvos de Hornear ",
+    "marca": "Collico",
+    "tipo": "Harina",
+    "descripcion": "Harina Flor Collico Sin Polvos de Hornear 1 kg",
+    "supermercado": 2,
+    "precio": "1490.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/360068-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/harina-flor-collico-env-papel-1kg/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 51,
+  "fields": {
+    "nombre": "Harina Sin Polvos de Hornear ",
+    "marca": "Cuisine & Co",
+    "tipo": "Harina",
+    "descripcion": "Harina Sin Polvos de Hornear 3 kg",
+    "supermercado": 2,
+    "precio": "3990.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/380371-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/harina-cuisine-and-co-sin-polvo-3-kg-1899552/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 52,
+  "fields": {
+    "nombre": "Harina Selecta Sin Polvos de Hornear",
+    "marca": "Selecta",
+    "tipo": "Harina",
+    "descripcion": "Harina Selecta Sin Polvos de Hornear 5 kg",
+    "supermercado": 2,
+    "precio": "7190.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/347205-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/harina-sin-polvos-de-hornear-selecta-bolsa-5-kg-2/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 53,
+  "fields": {
+    "nombre": "Harina Sin Polvos de Hornear",
+    "marca": "Cuisine & Co",
+    "tipo": "Harina",
+    "descripcion": "Harina Sin Polvos de Hornear 10 kg",
+    "supermercado": 2,
+    "precio": "10990.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/380369-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/harina-cuisine-and-co-sin-polvo-10-kg-1899554/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 54,
+  "fields": {
+    "nombre": "Harina de Fuerza",
+    "marca": "La Fuente Natural",
+    "tipo": "Harina",
+    "descripcion": "Harina de Fuerza 1 kg",
+    "supermercado": 2,
+    "precio": "2570.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/375421-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/harina-de-fuerza-1kg-1898040/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 55,
+  "fields": {
+    "nombre": "Harina Sin Polvos de Hornear",
+    "marca": "Cuisine & Co",
+    "tipo": "Harina",
+    "descripcion": "Harina Sin Polvos de Hornear 5 kg",
+    "supermercado": 2,
+    "precio": "6490.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/380335-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/harina-cuisine-and-co-sin-polvo-5-kg-1899553/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 56,
+  "fields": {
+    "nombre": "Harina Selecta Especial Panadería",
+    "marca": "Selecta",
+    "tipo": "Harina",
+    "descripcion": "Harina Selecta Especial Panadería 650 g",
+    "supermercado": 2,
+    "precio": "2030.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/347199-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/harina-selecta-bolsa-650-g-bake-para-panaderia-fina-con-levadura-2/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 57,
+  "fields": {
+    "nombre": "Harina Sin Polvos de Hornear",
+    "marca": "Selecta",
+    "tipo": "Harina",
+    "descripcion": "Harina Selecta Sin Polvos de Hornear 10 kg",
+    "supermercado": 2,
+    "precio": "12190.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/347203-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/harina-sin-polvos-de-hornear-selecta-10-kg-2/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 58,
+  "fields": {
+    "nombre": "Harina Sin Polvos De Hornear",
+    "marca": "Lider",
+    "tipo": "Harina",
+    "descripcion": "Harina Sin Polvos De Hornear, 1 kg",
+    "supermercado": 1,
+    "precio": "1000.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/316330d7-2e33-4796-bbf0-421a6d587e9d.b6d2e00c2dcdec7d43c8a96b3f93e982.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/conoce-nuestras-marcas/00780955920066?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 59,
+  "fields": {
+    "nombre": "Harina Selecta Con Polvos de Hornear",
+    "marca": "Mont Blanc",
+    "tipo": "Harina",
+    "descripcion": "Harina Selecta Con Polvos de Hornear 1kg",
+    "supermercado": 1,
+    "precio": "1290.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/580d3b7b-aa66-4718-8fed-7e918fbc55b2.247c4df81cd88d2b88c7585e848d8324.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/harinas-y-polvos/00780261500561?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 60,
+  "fields": {
+    "nombre": "Harina con Polvos de Hornear",
+    "marca": "Lider",
+    "tipo": "Harina",
+    "descripcion": "Harina con Polvos de Hornear 1 kg",
+    "supermercado": 1,
+    "precio": "1000.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/053a586e-92be-40ba-85c4-a8fd0c7d07aa.f215bf75f70d12e55910d620ba0e8935.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/harinas-y-polvos/00780955920067?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},  
+{
+  "model": "tucanasta.producto",
+  "pk": 61,
+  "fields": {
+    "nombre": "Harina Sin Polvos de Hornear ",
+    "marca": "Acuenta",
+    "tipo": "Harina",
+    "descripcion": "Harina Sin Polvos de Hornear, 1kg",
+    "supermercado": 1,
+    "precio": "880.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/35c67673-7a33-4501-8e6d-51977c3e3dad.a3f084eebe4da01ae4f20147d33a053d.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/harinas-y-polvos/00780955920033?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 62,
+  "fields": {
+    "nombre": "Harina Selecta Sin Polvos de Hornear",
+    "marca": "Selecta",
+    "tipo": "Harina",
+    "descripcion": "Harina Selecta Sin Polvos de Hornear, 1kg",
+    "supermercado": 1,
+    "precio": "1590.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/cb4c06b0-3c95-423b-8827-633f72041d45.b7ff86ed6a800395c90407005404fb20.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/harinas-y-polvos/00780261500520?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 63,
+  "fields": {
+    "nombre": "Harina con Polvos de Hornear",
+    "marca": "Mont Blanc",
+    "tipo": "Harina",
+    "descripcion": "Harina Selecta Con Polvos de Hornear 1kg",
+    "supermercado": 1,
+    "precio": "1290.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/1e920f64-8b1f-4b0b-990a-15ffc88c044c.dc3761fad8c15f89d2bdddc6fcfdedaa.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/harinas-y-polvos/00780261500551?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 64,
+  "fields": {
+    "nombre": "Harina con Polvos de Hornear",
+    "marca": "Selecta",
+    "tipo": "Harina",
+    "descripcion": "Harina con Polvos de Hornear 1 kg",
+    "supermercado": 1,
+    "precio": "1590.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/d85522b1-ae6d-492d-9b96-49045a9b8649.7558bcc5e2561801bda8cb0653554186.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/harinas-y-polvos/00780261500510?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 65,
+  "fields": {
+    "nombre": "Harina con Polvos de Hornear",
+    "marca": "Acuenta",
+    "tipo": "Harina",
+    "descripcion": "Harina con Polvos de Hornear 1 kg",
+    "supermercado": 1,
+    "precio": "880.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/7f81b1f7-4325-41f1-b41f-72838ce9c85c.aeb9bcac44f7a480e89fad6f853cb2ff.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/conoce-nuestras-marcas/00780955920034?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 66,
+  "fields": {
+    "nombre": "Harina de Fuerza",
+    "marca": "Collico",
+    "tipo": "Harina",
+    "descripcion": "Harina Collico de Fuerza 1 kg",
+    "supermercado": 1,
+    "precio": "1850.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/23048048-e24b-46f6-b96d-255c920419cb.1c59704a0d022c540ccc99554e71672a.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/harinas-y-polvos/00780262600155?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 67,
+  "fields": {
+    "nombre": "Harina todo uso ",
+    "marca": "Molino El Peral",
+    "tipo": "Harina",
+    "descripcion": "Harina todo uso, 1kg",
+    "supermercado": 1,
+    "precio": "1050.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/37b28091-5554-4a9f-b7ec-d81a6c8643e6.52c771a5ed09f4ccb0237396a5c0c629.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/harinas-y-polvos/00780265100001?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 68,
+  "fields": {
+    "nombre": "Harina Sin Polvos de Hornear",
+    "marca": "Mont Blanc",
+    "tipo": "Harina",
+    "descripcion": "Harina Selecta Sin Polvos de Hornear 1 kg",
+    "supermercado": 3,
+    "precio": "1090.00",
+    "moneda": "CLP",
+    "imagen_url": "https://unimarc.vtexassets.com/arquivos/ids/204437/000000000000005964-UN-01.jpg?v=637402202356630000",
+    "producto_url": "https://www.unimarc.cl/product/harina-mont-blanc-sin-polvos-1-kg",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 69,
+  "fields": {
+    "nombre": "Harina Sin Polvos De Hornear",
+    "marca": "Merkat",
+    "tipo": "Harina",
+    "descripcion": "Harina Sin Polvos De Hornear, 1 kg",
+    "supermercado": 3,
+    "precio": "870.00",
+    "moneda": "CLP",
+    "imagen_url": "https://unimarc.vtexassets.com/arquivos/ids/193622/000000000000358336-UN-01.jpg?v=637223869566300000",
+    "producto_url": "https://www.unimarc.cl/product/harina-s-polvo-merkat-1-kg",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 70,
+  "fields": {
+    "nombre": "Harina Con Polvos de Hornear",
+    "marca": "Mont Blanc",
+    "tipo": "Harina",
+    "descripcion": "Harina  Con Polvos de Hornear, 1kg",
+    "supermercado": 3,
+    "precio": "1080.00",
+    "moneda": "CLP",
+    "imagen_url": "https://unimarc.vtexassets.com/arquivos/ids/204436/000000000000005963-UN-01.jpg?v=637402200552370000",
+    "producto_url": "https://www.unimarc.cl/product/harina-mont-blanc-c-polvos-1kg",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 71,
+  "fields": {
+    "nombre": "Harina con Polvos de Hornear",
+    "marca": "Merkat",
+    "tipo": "Harina",
+    "descripcion": "Harina con Polvos de Hornear 1 kg",
+    "supermercado": 3,
+    "precio": "870.00",
+    "moneda": "CLP",
+    "imagen_url": "https://unimarc.vtexassets.com/arquivos/ids/193621/000000000000358335-UN-01.jpg?v=637223868882370000",
+    "producto_url": "https://www.unimarc.cl/product/harina-c-polvo-merkat-1-kg",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},  
+{
+  "model": "tucanasta.producto",
+  "pk": 72,
+  "fields": {
+    "nombre": "Harina Sin Polvos de Hornear ",
+    "marca": "Selecta",
+    "tipo": "Harina",
+    "descripcion": "Harina Sin Polvos de Hornear, 5kg",
+    "supermercado": 3,
+    "precio": "6200.00",
+    "moneda": "CLP",
+    "imagen_url": "https://unimarc.vtexassets.com/arquivos/ids/196158/000000000000005962-UN-01.jpg?v=637268443559930000",
+    "producto_url": "https://www.unimarc.cl/product/harina-selecta-sin-polvos-5-kg",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 73,
+  "fields": {
+    "nombre": "Harina Selecta Sin Polvos de Hornear",
+    "marca": "Selecta",
+    "tipo": "Harina",
+    "descripcion": "Harina Selecta Sin Polvos de Hornear, 1kg",
+    "supermercado": 3,
+    "precio": "1690.00",
+    "moneda": "CLP",
+    "imagen_url": "https://unimarc.vtexassets.com/arquivos/ids/204435/000000000000005959-UN-01.jpg?v=637402195489930000",
+    "producto_url": "https://www.unimarc.cl/product/harina-selecta-sin-polvos-1-kg",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 74,
+  "fields": {
+    "nombre": "Harina de avena Selecta integral",
+    "marca": "Selecta",
+    "tipo": "Harina",
+    "descripcion": "Harina de avena Selecta integral 1kg",
+    "supermercado": 3,
+    "precio": "2560.00",
+    "moneda": "CLP",
+    "imagen_url": "https://unimarc.vtexassets.com/arquivos/ids/239097/000000000000668455-UN-01.jpg?v=638501086914870000",
+    "producto_url": "https://www.unimarc.cl/product/harina-de-avena-integral-selecta-850-gr",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 75,
+  "fields": {
+    "nombre": "Harina blanca de maíz Pan precocida",
+    "marca": "Pan",
+    "tipo": "Harina",
+    "descripcion": "Harina blanca de maíz Pan precocida 1 kg",
+    "supermercado": 1,
+    "precio": "1590.00",
+    "moneda": "CLP",
+    "imagen_url": "https://unimarc.vtexassets.com/arquivos/ids/231893/000000000617418001-UN-01.jpg?v=638096692305030000",
+    "producto_url": "https://www.unimarc.cl/product/harina-de-maiz-precocid-pan-1kg-blanca",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 76,
+  "fields": {
+    "nombre": "Harina Sin Polvos de Hornear ",
+    "marca": "Merkat",
+    "tipo": "Harina",
+    "descripcion": "Harina Sin Polvos de Hornear 25 kg",
+    "supermercado": 3,
+    "precio": "15990.00",
+    "moneda": "CLP",
+    "imagen_url": "https://unimarc.vtexassets.com/arquivos/ids/197106/Harina-Merkat-sin-polvos-de-hornear-25-Kg-1-96352.jpg?v=637279602432070000",
+    "producto_url": "https://www.unimarc.cl/product/harina-merkat-poli-25-kg",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 77,
+  "fields": {
+    "nombre": "Harina Nuestra Cocina sin polvos ",
+    "marca": "Nuestra Cocina",
+    "tipo": "Harina",
+    "descripcion": "Harina Nuestra Cocina sin polvos  1 kg",
+    "supermercado": 3,
+    "precio": "1000.00",
+    "moneda": "CLP",
+    "imagen_url": "https://unimarc.vtexassets.com/arquivos/ids/219937/000000000000652510-UN-01.jpg?v=638887889245570000",
+    "producto_url": "https://www.unimarc.cl/product/harina-s-polvos-nuestra-cocina-1-kg",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 78,
+  "fields": {
+    "nombre": "Harina Nuestra Cocina con polvos ",
+    "marca": "Nuestra Cocina",
+    "tipo": "Harina",
+    "descripcion": "Harina Nuestra Cocina con polvos  1 kg",
+    "supermercado": 3,
+    "precio": "1000.00",
+    "moneda": "CLP",
+    "imagen_url": "https://unimarc.vtexassets.com/arquivos/ids/219938/000000000000652511-UN-01.jpg?v=638887889251600000",
+    "producto_url": "https://www.unimarc.cl/product/harina-c-polvos-nuestra-cocina-1-kg",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 79,
+  "fields": {
+    "nombre": "Harina de arroz Tucapel",
+    "marca": "Tucapel",
+    "tipo": "Harina",
+    "descripcion": "Harina de arroz Tucapel 500g",
+    "supermercado": 3,
+    "precio": "1000.00",
+    "moneda": "CLP",
+    "imagen_url": "https://unimarc.vtexassets.com/arquivos/ids/217049/000000000000792923-UN-01.jpg?v=637608315721570000",
+    "producto_url": "https://www.unimarc.cl/product/harina-arroz-tucapel-500-gr",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 80,
+  "fields": {
+    "nombre": "Harina Máxima Sin Polvos de Hornear ",
+    "marca": "Máxima",
+    "tipo": "Harina",
+    "descripcion": "Harina Máxima Sin Polvos de Hornear 1kg",
+    "supermercado": 4,
+    "precio": "870.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/395804-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/harina-maxima-sin-polvo-1-kg-1624899/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 81,
+  "fields": {
+    "nombre": "Harina Cuisine & Co Sin Polvos de Hornear 1 kg",
+    "marca": "Cuisine & Co",
+    "tipo": "Harina",
+    "descripcion": "Harina Cuisine & Co Sin Polvos de Hornear 1 kg",
+    "supermercado": 4,
+    "precio": "1000.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/271022-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/harina-sin-polvo-de-hornear-1-kg-1899550/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 82,
+  "fields": {
+    "nombre": "Harina Mont Blanc Sin Polvos de Hornear",
+    "marca": "Mont Blanc",
+    "tipo": "Harina",
+    "descripcion": "Harina Mont Blanc Sin Polvos de Hornear 1 kg",
+    "supermercado": 4,
+    "precio": "1340.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/180687-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/harina-sin-polvos-de-hornear-mont-blanc-bolsa-1-kg/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 83,
+  "fields": {
+    "nombre": "Harina Mont Blanc Con Polvos de Hornear",
+    "marca": "Máxima",
+    "tipo": "Harina",
+    "descripcion": "Harina Mont Blanc Con Polvos de Hornear 1 kg",
+    "supermercado": 4,
+    "precio": "890.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/395805-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/harina-maxima-con-polvo-1-kg-1624900/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 84,
+  "fields": {
+    "nombre": "Harina Mont Blanc con Polvos de Hornear ",
+    "marca": "Mont Blanc",
+    "tipo": "Harina",
+    "descripcion": "Harina Mont Blanc con Polvos de Hornear 1 kg",
+    "supermercado": 4,
+    "precio": "1360.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/180685-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/harina-con-polvos-de-hornear-mont-blanc-bolsa-1-kg/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 85,
+  "fields": {
+    "nombre": "Harina Máxima",
+    "marca": "Máxima",
+    "tipo": "Harina",
+    "descripcion": "Harina Máxima 20 kg",
+    "supermercado": 4,
+    "precio": "14990.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/172840-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/harina-20-kg-1822799/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 86,
+  "fields": {
+    "nombre": "Harina Integral",
+    "marca": "Cuisine & Co",
+    "tipo": "Harina",
+    "descripcion": "Harina Integral 1 kg",
+    "supermercado": 4,
+    "precio": "1390.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/271032-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/harina-integral-cuisine-and-co-1-kg-1899555/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 87,
+  "fields": {
+    "nombre": "Harina Cuisine & Co con Polvos de Hornear",
+    "marca": "Cuisine & Co",
+    "tipo": "Harina",
+    "descripcion": "Harina Cuisine & Co con Polvos de Hornear 1 kg",
+    "supermercado": 4,
+    "precio": "1000.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/271024-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/har-cpol-1k-c-and-co-1899551/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 88,
+  "fields": {
+    "nombre": "Harina de Maíz P.A.N. Blanca Pan",
+    "marca": "Pan",
+    "tipo": "Harina",
+    "descripcion": "Harina de Maíz P.A.N. Blanca Pan 1 kg",
+    "supermercado": 4,
+    "precio": "1850.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/262305-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/harina-de-maiz-p-a-n-1-kg/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 89,
+  "fields": {
+    "nombre": "Harina de Fuerza",
+    "marca": "Cuisine & Co",
+    "tipo": "Harina",
+    "descripcion": "Harina de Fuerza 1 kg",
+    "supermercado": 4,
+    "precio": "1000.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/271034-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/harina-de-fuerza-cuisine-and-co-1-kg-1899556/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 90,
+  "fields": {
+    "nombre": "Harina Máxima Sin Polvos de Hornear ",
+    "marca": "Máxima",
+    "tipo": "Harina",
+    "descripcion": "Harina Máxima Sin Polvos de Hornear 1kg",
+    "supermercado": 4,
+    "precio": "870.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/395804-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/harina-maxima-sin-polvo-1-kg-1624899/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 91,
+  "fields": {
+    "nombre": "Fideo Pasta Spaghetti N°5 Bolsa",
+    "marca": "Lucchetti",
+    "tipo": "Fideos",
+    "descripcion": "Fideo Pasta Spaghetti N°5 Bolsa, 400 g",
+    "supermercado": 4,
+    "precio": "990.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/a0afe1e9-2bf2-4dd4-9ede-6cdaa8fff339.51f4e5e79d47ad6b577440c19aedcd01.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/pastas-y-salsas/00780250000005?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 92,
+  "fields": {
+    "nombre": "Fideo Pasta Spaghetti N°5 Bolsa",
+    "marca": "Carozzi",
+    "tipo": "Fideos",
+    "descripcion": "Fideo Pasta Spaghetti N°5 Bolsa, 400 g",
+    "supermercado": 1,
+    "precio": "1050.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/d72fa23a-1bd4-4c1a-800e-3c4bb995e6be.a961ffb4d3f9fb70d27d61333b26ed33.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/pastas-y-salsas/00780257500443?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 93,
+  "fields": {
+    "nombre": "Fideo Pasta Espirales N°49 Bolsa",
+    "marca": "Carozzi",
+    "tipo": "Fideos",
+    "descripcion": "Fideo Pasta Espirales N°49 Bolsa, 400 g",
+    "supermercado": 1,
+    "precio": "1050.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/5a16e5ab-0772-441a-b563-fbefaf1f30f5.3fb9e4ac940c073de710f5ce6622b6cd.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/pastas-y-salsas/00780257500223?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 94,
+  "fields": {
+    "nombre": "Fideo Pasta Espirales N°56 Bolsa",
+    "marca": "Lucchetti",
+    "tipo": "Fideos",
+    "descripcion": "Fideo Pasta Espirales N°56 Bolsa, 400 g",
+    "supermercado": 1,
+    "precio": "990.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/cb9ea16c-a103-445e-8852-a81e899b590f.3d77b2553509d4861af4f508344ee85e.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/pastas-y-salsas/00780250000108?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 95,
+  "fields": {
+    "nombre": "Fideo Pasta al Huevo Spaghetti N°5 Bolsa",
+    "marca": "Talliani",
+    "tipo": "Fideos",
+    "descripcion": "Fideo Pasta al Huevo Spaghetti N°5 Bolsa, 400 g",
+    "supermercado": 1,
+    "precio": "990.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/473d00f1-87f8-4ae5-bef2-1fd199492004.18ba70b7b2eb4ecd481a246ab9dfd7f6.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/pastas-y-salsas/00780250000702?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 96,
+  "fields": {
+    "nombre": "Fideo Pasta Spaghetti N°5 Bolsa",
+    "marca": "Lider",
+    "tipo": "Fideos",
+    "descripcion": "Fideo Pasta Spaghetti N°5 Bolsa, 400 g",
+    "supermercado": 1,
+    "precio": "760.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/8283b721-8d60-4bfc-a5d0-be916eb87e18.90c7def93a2f9edaec76b5bad6c81031.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/conoce-nuestras-marcas/00040000726874?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 97,
+  "fields": {
+    "nombre": "Fideo Pasta Espirales Bolsa",
+    "marca": "Lider",
+    "tipo": "Fideos",
+    "descripcion": "Fideo Pasta Espirales Bolsa, 400 g",
+    "supermercado": 1,
+    "precio": "760.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/569d153f-0495-4c56-bb03-db4e6ac28fae.a789bb516292f1b94bd0e271c081baf4.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/conoce-nuestras-marcas/00780311100127?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 98,
+  "fields": {
+    "nombre": "Fideo Pasta al Huevo Spirali Bolsa",
+    "marca": "Talliani",
+    "tipo": "Fideos",
+    "descripcion": "Fideo Pasta al Huevo Spirali Bolsa, 400 g",
+    "supermercado": 1,
+    "precio": "400.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/f4f2124a-cf04-4b22-9998-a0a720747af9.bb3b90322bc55e3d1cbebe3d8c2e0333.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/pastas-y-salsas/00780250000804?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 99,
+  "fields": {
+    "nombre": "Fideo Pasta Corbatas N°88 Bolsa, 400 g",
+    "marca": "Lucchetti",
+    "tipo": "Fideos",
+    "descripcion": "Fideo Pasta Corbatas N°88 Bolsa, 400 g",
+    "supermercado": 1,
+    "precio": "990.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/90af6d53-7c29-40a3-a9bd-52efbc540fef.16c14584376d298ffe30c5f6a8a51165.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/pastas-y-salsas/00780250000302?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 100,
+  "fields": {
+    "nombre": "Fideo Pasta Corbatas N°80 Bolsa, 400 g",
+    "marca": "Carozzi",
+    "tipo": "Fideos",
+    "descripcion": "Fideo Pasta Corbatas N°80 Bolsa, 400 g",
+    "supermercado": 1,
+    "precio": "1050.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/39f3e754-971a-4e0f-8859-c7348240810e.d896bea3cc271bc261c63d3089d7799e.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/pastas-y-salsas/00780257500603?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-10-27T00:00:00Z"
+  }
+} ,
+
+{
+  "model": "tucanasta.producto",
+  "pk": 101,
+  "fields": {
+    "nombre": "Aceite Maravilla 1 L",
+    "marca": "Natura",
+    "tipo": "Aceite",
+    "descripcion": "Aceite de maravilla Natura 1 litro.",
+    "supermercado": 1,
+    "precio": "3790.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/5d4ca1ed-0a0b-45aa-9de7-56c2e1bdf627.f4ac5fa9c2cb19ae5aa419aaac2444fc.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/aceites-y-aderezos/aceite-de-maravilla-botella/00779027200101?channable=050ee7696400303037373930323732303031303107&utm_source=google&utm_medium=pmax&utm_campaign=walp_sod_cl_performance-max_conversion_pmax-sod_nacional&utm_content=&utm_term=&gclsrc=aw.ds&gad_source=1&gad_campaignid=18096637909&gbraid=0AAAAAo2xgFwY8ZPutnK-5b53FdoLgDoNv&gclid=Cj0KCQiArOvIBhDLARIsAPwJXObPVX6NEu59Wo1OQQ0JUjMVn_DAFh4wfSOh7Ec1JoZwkVUbfmimpCUaAu-gEALw_wcB",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 102,
+  "fields": {
+    "nombre": "Aceite Maravilla 1 L",
+    "marca": "Chef",
+    "tipo": "Aceite",
+    "descripcion": "Aceite de maravilla Chef 1 litro.",
+    "supermercado": 1,
+    "precio": "3000.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/3a5979d7-1557-4e7a-85dc-cff0e3ab656b.5c694da40223002fb3faea74a7cafdb4.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/aceites-y-aderezos/aceite-de-maravilla-botella-botella/00780281000209?channable=050ee76964003030373830323831303030323039f9&utm_source=google&utm_medium=pmax&utm_campaign=walp_sod_cl_performance-max_conversion_pmax-sod_nacional&utm_content=&utm_term=&gclsrc=aw.ds&gad_source=1&gad_campaignid=18096637909&gbraid=0AAAAAo2xgFwY8ZPutnK-5b53FdoLgDoNv&gclid=Cj0KCQiArOvIBhDLARIsAPwJXOai5OXAez3EmzkrPJBUlngGiV5Vy_2Iy1q1smahuetBQocb9JdNkRMaApGhEALw_wcB",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 103,
+  "fields": {
+    "nombre": "Aceite de Oliva Extra Virgen 500 ml",
+    "marca": "Chef",
+    "tipo": "Aceite",
+    "descripcion": "Aceite Oliva Extra Virgen Botella, 500 ml",
+    "supermercado": 1,
+    "precio": "8990.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/200e095e-6a6d-4995-99a8-8ff564d910bb.2edeaf0954aaa18ddc4e418b26bbccd5.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/aceites-y-aderezos/00780281000231?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 104,
+  "fields": {
+    "nombre": "Aceite de Maravilla 900ml",
+    "marca": "Miraflores ",
+    "tipo": "Aceite",
+    "descripcion": "Aceite Maravilla marca Miraflores 900ml.",
+    "supermercado": 1,
+    "precio": "2000.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/b75c5479-ba96-4666-a2dc-21f2aa8d79f6.2ec597014bf1c4c7905366f35537c481.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/aceites-y-aderezos/00780132000000?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 105,
+  "fields": {
+    "nombre": "Aceite Vegetal 1L",
+    "marca": "Belmont",
+    "tipo": "Aceite",
+    "descripcion": "Aceite Vegetal marca Belmont 1 litro.",
+    "supermercado": 1,
+    "precio": "2450.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/1cfdac04-364d-42e9-a798-69ea27bbde3a.f83cd2295aa553a9e93ef5cc92ba8e5d.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/aceites-y-aderezos/00780281001202?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+},
+{
+  "model": "tucanasta.producto",
+  "pk": 106,
+  "fields": {
+    "nombre": "Aceite de Oliva Extra Virgen 500 ml",
+    "marca": "Banquete",
+    "tipo": "Aceite",
+    "descripcion": "Aceite de Oliva Extra Virgen Botella, 500 ml",
+    "supermercado": 1,
+    "precio": "8450.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/5f217d12-099e-41f0-9a20-0c8361f30f78.677b69ef29df8dbc57028a8649346b35.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/aceites-y-aderezos/00780142000060?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 107,
+  "fields": {
+    "nombre": "Aceite de Maravilla 900ml",
+    "marca": "Miraflores ",
+    "tipo": "Aceite",
+    "descripcion": "Aceite de Maravilla Miraflores 900 ml",
+    "supermercado": 4,
+    "precio": "3150.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/278644-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/aceite-maravilla-miraflores-900-ml-1952461/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 108,
+  "fields": {
+    "nombre": "Aceite de Maravilla Natura Libre de Colesterol 1.5 L",
+    "marca": "Natura",
+    "tipo": "Aceite",
+    "descripcion": "Aceite de Maravilla Natura Libre de Colesterol 1.5 L",
+    "supermercado": 4,
+    "precio": "6090.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/188887-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/aceite-de-maravilla-natura-1-5-l-0-colesterol/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 109,
+  "fields": {
+    "nombre": "Aceite Vegetal Natura 900 ml",
+    "marca": "Natura",
+    "tipo": "Aceite",
+    "descripcion": "Aceite Vegetal Natura 900 ml",
+    "supermercado": 4,
+    "precio": "2790.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/198724-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/aceite-vegetal-900-ml-1893648/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 110,
+  "fields": {
+    "nombre": "Aceite Vegetal Libre de Colesterol 900 ml",
+    "marca": "Cuisine & Co",
+    "tipo": "Aceite",
+    "descripcion": "Aceite Vegetal Libre de Colesterol 900 ml",
+    "supermercado": 4,
+    "precio": "1790.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/296011-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/aceite-vegetal-libre-de-colesterol-900-ml-cuisine-and-co-1800913/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk":111,
+  "fields": {
+    "nombre": "Aceite de Maravilla 900 ml",
+    "marca": "Cuisine & Co",
+    "tipo": "Aceite",
+    "descripcion": "Aceite de Maravilla 900 ml",
+    "supermercado": 4,
+    "precio": "2430.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/290732-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/aceite-maravilla-900-ml-cuisine-and-co-1800914/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 112,
+  "fields": {
+    "nombre": "Aceite de Maravilla Chef 1 L",
+    "marca": "Chef",
+    "tipo": "Aceite",
+    "descripcion": "Aceite de Maravilla Chef 1 L",
+    "supermercado": 4,
+    "precio": "2990.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/507712-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/aceite-maravilla-chef-1-l/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 113,
+  "fields": {
+    "nombre": "Aceite Vegetal Belmont 1 L",
+    "marca": "Belmont",
+    "tipo": "Aceite",
+    "descripcion": "Aceite Vegetal Belmont 1 L",
+    "supermercado": 4,
+    "precio": "3190.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/197658-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/aceite-vegetal-belmont-1-l-0-colesterol/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 114,
+  "fields": {
+    "nombre": "Aceite de Oliva Extra Virgen 1L",
+    "marca": "Chef",
+    "tipo": "Aceite",
+    "descripcion": "Aceite de Oliva Extra Virgen Botella, 1 L",
+    "supermercado": 4,
+    "precio": "14690.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/346204-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/aceite-de-oliva-extra-virgen-1-l-1247547/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 115,
+  "fields": {
+    "nombre": "Aceite de Oliva Banquete Extra Virgen 500 ml",
+    "marca": "Banquete",
+    "tipo": "Aceite",
+    "descripcion": "Aceite de Oliva Banquete Extra Virgen 500 ml",
+    "supermercado": 4,
+    "precio": "10350.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/161780-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/aceite-de-oliva-banquete-botella-500-ml-extra-virgen-2/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 116,
+  "fields": {
+    "nombre": "Aceite de Oliva Chef Extra Virgen 500 ml",
+    "marca": "Chef",
+    "tipo": "Aceite",
+    "descripcion": "Aceite de Oliva Chef Extra Virgen 500 ml",
+    "supermercado": 4,
+    "precio": "9190.00",
+    "moneda": "CLP",
+    "imagen_url": "https://santaisabel.vtexassets.com/arquivos/ids/339523-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.santaisabel.cl/aceite-de-oliva-chef-botella-500-ml-extra-virgen-2/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 117,
+  "fields": {
+    "nombre": "Aceite de Maravilla Chef 1 L",
+    "marca": "Chef",
+    "tipo": "Aceite",
+    "descripcion": "Aceite de Maravilla Chef 1 L",
+    "supermercado": 2,
+    "precio": "2990.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/452172-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/aceite-maravilla-chef-1-l/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 118,
+  "fields": {
+    "nombre": "Aceite Vegetal Miraflores 900 ml",
+    "marca": "Miraflores ",
+    "tipo": "Aceite",
+    "descripcion": "Aceite Vegetal Miraflores 900 ml",
+    "supermercado": 2,
+    "precio": "1990.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/318300-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/aceite-vegetal-miraflores-900-ml-1952460/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 119,
+  "fields": {
+    "nombre": "Aceite de Maravilla 900 ml",
+    "marca": "Cuisine & Co",
+    "tipo": "Aceite",
+    "descripcion": "Aceite de Maravilla 900 ml",
+    "supermercado": 2,
+    "precio": "2450.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/379894-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/aceite-maravilla-cuisine-and-co-900-ml-1927105/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 120,
+  "fields": {
+    "nombre": "Aceite de Canola 1 L",
+    "marca": "Cuisine & Co",
+    "tipo": "Aceite",
+    "descripcion": "Aceite de Canola 1 L",
+    "supermercado": 2,
+    "precio": "2790.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/363414-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/aceite-de-canola-1-l-cuisine-and-co-1749577/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 121,
+  "fields": {
+    "nombre": "Aceite de Maravilla Natura 900 ml",
+    "marca": "Natura",
+    "tipo": "Aceite",
+    "descripcion": "Aceite de Maravilla Natura 900 ml",
+    "supermercado": 2,
+    "precio": "3590.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/351691-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/aceite-maravilla-natura-900-ml/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 122,
+  "fields": {
+    "nombre": "Aceite de Canola Belmont 900 ml",
+    "marca": "Belmont",
+    "tipo": "Aceite",
+    "descripcion": "Aceite de Canola Belmont 900 ml",
+    "supermercado": 2,
+    "precio": "2990.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/352423-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/aceite-de-canola-belmont-1-l-100-vegetal/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 123,
+  "fields": {
+    "nombre": "Aceite de Maravilla Miraflores 900 ml",
+    "marca": "Miraflores ",
+    "tipo": "Aceite",
+    "descripcion": "Aceite de Maravilla Miraflores 900 ml",
+    "supermercado": 2,
+    "precio": "3190.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/388380-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/aceite-maravilla-miraflores-900-ml-1952461/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 124,
+  "fields": {
+    "nombre": "Aceite de Oliva Chef Extra Virgen 500 ml",
+    "marca": "Chef",
+    "tipo": "Aceite",
+    "descripcion": "Aceite de Oliva Chef Extra Virgen 500 ml",
+    "supermercado": 2,
+    "precio": "9190.00",
+    "moneda": "CLP",
+    "imagen_url": "https://www.jumbo.cl/aceite-de-oliva-chef-botella-500-ml-extra-virgen-2/p",
+    "producto_url": "https://jumbocl.vtexassets.com/arquivos/ids/298603-900-900?width=900&height=900&aspect=true",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 125,
+  "fields": {
+    "nombre": "Aceite de Oliva Banquete Extra Virgen 500 ml",
+    "marca": "Banquete",
+    "tipo": "Aceite",
+    "descripcion": "Aceite de Oliva Banquete Extra Virgen 500 ml",
+    "supermercado": 2,
+    "precio": "10590.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/298597-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/aceite-de-oliva-banquete-botella-500-ml-extra-virgen-2/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 126,
+  "fields": {
+    "nombre": "Aceite Miraflores maravilla botella 900 cc",
+    "marca": "M+",
+    "tipo": "Aceite",
+    "descripcion": "Aceite Miraflores maravilla botella 900 cc",
+    "supermercado": 3,
+    "precio": "2000.00",
+    "moneda": "CLP",
+    "imagen_url": "https://unimarc.vtexassets.com/arquivos/ids/238069/000000000000654777-UN-01.jpg?v=638459464342930000",
+    "producto_url": "https://www.unimarc.cl/product/aceite-maravilla-miraflores-900-cc",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 127,
+  "fields": {
+    "nombre": "Aceite Chef maravilla 0% colesterol 1 L",
+    "marca": "Chef",
+    "tipo": "Aceite",
+    "descripcion": "Aceite Chef maravilla 0% colesterol 1 L",
+    "supermercado": 3,
+    "precio": "3000.00",
+    "moneda": "CLP",
+    "imagen_url": "https://unimarc.vtexassets.com/arquivos/ids/196324/000000000000004912-UN-01.jpg?v=637270009560970000",
+    "producto_url": "https://www.unimarc.cl/product/aceite-maravilla-chef-0-colesterol-botella-1-l",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 128,
+  "fields": {
+    "nombre": "Aceite Belmont vegetal con canola 1 L",
+    "marca": "Belmont",
+    "tipo": "Aceite",
+    "descripcion": "Aceite Belmont vegetal con canola 1 L",
+    "supermercado": 3,
+    "precio": "3250.00",
+    "moneda": "CLP",
+    "imagen_url": "https://unimarc.vtexassets.com/arquivos/ids/196494/000000000000004933-UN-01.jpg?v=637273445302730000",
+    "producto_url": "https://www.unimarc.cl/product/aceite-vegetal-con-canola-belmont-1-l",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 129,
+  "fields": {
+    "nombre": "Aceite Natura maravilla 100% 900 ml",
+    "marca": "Natura",
+    "tipo": "Aceite",
+    "descripcion": "Aceite Natura maravilla 100% 900 ml",
+    "supermercado": 3,
+    "precio": "3590.00",
+    "moneda": "CLP",
+    "imagen_url": "https://unimarc.vtexassets.com/arquivos/ids/243812/000000000000646386-UN-01.jpg?v=638603913004870000",
+    "producto_url": "https://www.unimarc.cl/product/aceite-maravilla-100-natura-900-cc",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 130,
+  "fields": {
+    "nombre": "Aceite vegetal Natura 900 ml",
+    "marca": "Natura",
+    "tipo": "Aceite",
+    "descripcion": "Aceite vegetal Natura 900 ml",
+    "supermercado": 3,
+    "precio": "2850.00",
+    "moneda": "CLP",
+    "imagen_url": "https://unimarc.vtexassets.com/arquivos/ids/222337/000000000000652565-UN-01.jpg?v=637751807574300000",
+    "producto_url": "https://www.unimarc.cl/product/aceite-vegetal-natura-900-ml",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 131,
+  "fields": {
+    "nombre": "Aceite de oliva Chef extra virgen 500 ml",
+    "marca": "Chef",
+    "tipo": "Aceite",
+    "descripcion": "Aceite de oliva Chef extra virgen 500 ml",
+    "supermercado": 3,
+    "precio": "9690.00",
+    "moneda": "CLP",
+    "imagen_url": "https://unimarc.vtexassets.com/arquivos/ids/196331/000000000000131318-UN-01.jpg?v=637270018509130000",
+    "producto_url": "https://www.unimarc.cl/product/aceite-oliva-chef-extra-virgen-arbequina-500-ml",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 132,
+  "fields": {
+    "nombre": "Aceite de oliva Banquete extra virgen 1 L",
+    "marca": "Banquete",
+    "tipo": "Aceite",
+    "descripcion": "Aceite de oliva Banquete extra virgen 1 L",
+    "supermercado": 3,
+    "precio": "16500.00",
+    "moneda": "CLP",
+    "imagen_url": "https://unimarc.vtexassets.com/arquivos/ids/217043/000000000000173112-UN-01.jpg?v=637608295842200000",
+    "producto_url": "https://www.unimarc.cl/product/aceite-oliva-banquete-extra-virgen-vidrio-1-l",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 133,
+  "fields": {
+    "nombre": "Leche Descremada Sin Lactosa Caja, 1 L",
+    "marca": "Colun",
+    "tipo": "Leches",
+    "descripcion": "Leche Descremada Sin Lactosa Caja, 1 L",
+    "supermercado": 1,
+    "precio": "1250.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/71dd0d88-2ad9-4337-8daf-cc7bd4340c7c.b886d3083682f3c8563ac40e747f99cc.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/leche/00780292000740?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 134,
+  "fields": {
+    "nombre": "Leche Semidescremada Sin Lactosa Caja Con Tapa, 1 L",
+    "marca": "Colun",
+    "tipo": "Leches",
+    "descripcion": "Leche Semidescremada Sin Lactosa Caja Con Tapa, 1 L",
+    "supermercado": 1,
+    "precio": "1250.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/9fa34cc9-5337-4f51-8963-60f0c4e706e1.10b9ed257ad1227c73b7425d8654db3d.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/leche/00780292000741?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+
+{
+  "model": "tucanasta.producto",
+  "pk": 135,
+  "fields": {
+    "nombre": "Leche Entera Natural Caja 1 l",
+    "marca": "Colun",
+    "tipo": "Leches",
+    "descripcion": "Leche Entera Natural Caja 1 l",
+    "supermercado": 1,
+    "precio": "1250.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/fe1f2b98-4a4d-4b66-8d1a-254379263fe7.339d76f2e92a97ec30887a003dba3a41.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/leche/00780292077754?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+
+{
+  "model": "tucanasta.producto",
+  "pk": 136,
+  "fields": {
+    "nombre": "Leche Semidescremada Chocolate, 1 L",
+    "marca": "Colun",
+    "tipo": "Leches",
+    "descripcion": "Leche Semidescremada Chocolate, 1 L",
+    "supermercado": 1,
+    "precio": "1590.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/8c61a0bd-5cf8-4f3a-b507-03f559b1fb36.23aa483f20d4b0759c87d54f189d3454.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/leche/00780292080108?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 137,
+  "fields": {
+    "nombre": "Leche Entera Natural 1 l, 1 L",
+    "marca": "Soprole",
+    "tipo": "Leches",
+    "descripcion": "Leche Entera Natural 1 l, 1 L",
+    "supermercado": 1,
+    "precio": "1190.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/775df153-9744-4128-ae20-ac1254c4b7ba.41d5a84806e6e592a9abcc656a04f92b.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/leche/00780290000130?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 138,
+  "fields": {
+    "nombre": "Leche Semidescremada Natural 1 l, 1 L",
+    "marca": "Soprole",
+    "tipo": "Leches",
+    "descripcion": "Leche Semidescremada Natural 1 l, 1 L",
+    "supermercado": 1,
+    "precio": "1190.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/3c7313f4-d8ac-4d9f-a9ce-d9ea1cb9d85b.644f7e4e4f9353f89f1336b9ebbddde8.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/leche/00780290000129?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 139,
+  "fields": {
+    "nombre": "Bebida Vegetal de Soya NotMilk Low Fat, 1 L",
+    "marca": "NOT MILK",
+    "tipo": "Leches",
+    "descripcion": "Bebida Vegetal de Soya NotMilk Low Fat, 1 L",
+    "supermercado": 1,
+    "precio": "2000.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/37e8bb21-4e75-4b6d-ba04-c293113acc86.934bdaa73c1ac2a96029410ab4c24042.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/bebidas-vegetales/00780465965006?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 140,
+  "fields": {
+    "nombre": "Bebida Vegetal NotMilk Original, 1 L",
+    "marca": "NOT MILK",
+    "tipo": "Leches",
+    "descripcion": "Bebida Vegetal NotMilk Original, 1 L",
+    "supermercado": 1,
+    "precio": "2000.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/80102e6a-344a-4b81-8010-c08fa8c4e22e.c66a97088ecabab7bff3aed463d833ce.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/bebidas-vegetales/00780465965036?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+
+{
+  "model": "tucanasta.producto",
+  "pk": 141,
+  "fields": {
+    "nombre": "Leche Semidescremada Sin Lactosa, 1 L",
+    "marca": "Lonco Leche",
+    "tipo": "Leches",
+    "descripcion": "Leche Semidescremada Sin Lactosa, 1 L",
+    "supermercado": 1,
+    "precio": "1190.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/31fc2dc6-7ec5-47a2-a90c-a1edde738b0f.9ad6232838dc31be57c5add7955ed10a.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/leche/00780291000022?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 142,
+  "fields": {
+    "nombre": "Leche Descremada Natural sin Lactosa, 1 L",
+    "marca": "Lonco Leche",
+    "tipo": "Leches",
+    "descripcion": "Leche Descremada Natural sin Lactosa, 1 L",
+    "supermercado": 1,
+    "precio": "1190.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/a698b83f-767d-43d6-9cf5-bfd9b04f0721.8dcc085dbd00c21d78c271d2c28a2754.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/leche/00780291008350?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 143,
+  "fields": {
+    "nombre": "Leche Entera Natural sin Lactosa, 1 L",
+    "marca": "Lonco Leche",
+    "tipo": "Leches",
+    "descripcion": "Leche Entera Natural sin Lactosa, 1 L",
+    "supermercado": 1,
+    "precio": "1190.00",
+    "moneda": "CLP",
+    "imagen_url": "https://i5.walmartimages.cl/asr/cd49911c-787e-4508-87a3-64b8853b4ecc.1b609dc93a8f62c96693328a65aef6a3.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "producto_url": "https://super.lider.cl/ip/leche/00780291000097?from=/search",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} 
+]
+
+

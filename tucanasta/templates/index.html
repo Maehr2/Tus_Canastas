@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TuCanasta.cl</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+  <section class="hero d-flex flex-column justify-content-center align-items-center text-center position-relative min-vh-100">
+    <!-- Fondo desenfocado -->
+        <div class="fondo-borroso">
+      <img src="{% static 'img/Super1920.jpg' %}" alt="Fondo TuCanasta">
+    </div>
+    <!-- Capa semitransparente -->
+    <div class="overlay position-absolute w-100 h-100"></div>
+
+    <!-- Contenido principal -->
+    <div class="contenedor position-relative">
+      <img src="{% static 'img/logotucan.png' %}" alt="Logo TuCanasta" class="logo mb-3 animate-fade">
+      
+      {% if user.is_authenticated %}
+        <h2 class="text-white mb-4 animate-slide">Hola, {{ user.username }}</h2>
+        <form method="post" action="{% url 'logout' %}" class="d-inline">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-outline-light px-4 py-2">Salir</button>
+        </form>
+      {% else %}
+        <h1 class="display-5 fw-bold mb-3 animate-slide">Bienvenido a <span class="text-primary">TuCanasta.cl</span></h1>
+        <p class="lead text-light mb-4 animate-fade">
+          Compara precios de la canasta básica chilena fácil y rápido.
+        </p>
+        <a href="{% url 'login' %}?next={% url 'comparador' %}" 
+           class="btn btn-primary btn-lg shadow boton-redireccion animate-bounce">
+           Loguéate para comparar
+        </a>
+      {% endif %}
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
