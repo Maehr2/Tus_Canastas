@@ -1698,7 +1698,7 @@
     "tipo": "Fideos",
     "descripcion": "Fideo Pasta al Huevo Spirali Bolsa, 400 g",
     "supermercado": 1,
-    "precio": "400.00",
+    "precio": "990.00",
     "moneda": "CLP",
     "imagen_url": "https://i5.walmartimages.cl/asr/f4f2124a-cf04-4b22-9998-a0a720747af9.bb3b90322bc55e3d1cbebe3d8c2e0333.jpeg?null=&odnHeight=612&odnWidth=612&odnBg=FFFFFF",
     "producto_url": "https://super.lider.cl/ip/pastas-y-salsas/00780250000804?from=/search",
@@ -2143,8 +2143,8 @@
     "supermercado": 2,
     "precio": "9190.00",
     "moneda": "CLP",
-    "imagen_url": "https://www.jumbo.cl/aceite-de-oliva-chef-botella-500-ml-extra-virgen-2/p",
-    "producto_url": "https://jumbocl.vtexassets.com/arquivos/ids/298603-900-900?width=900&height=900&aspect=true",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/298603-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/aceite-de-oliva-chef-botella-500-ml-extra-virgen-2/p",
     "disponible": true,
     "fecha_actualizacion": "2025-11-17T00:00:00Z"
   }
@@ -2474,7 +2474,194 @@
     "disponible": true,
     "fecha_actualizacion": "2025-11-17T00:00:00Z"
   }
-} 
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 144,
+  "fields": {
+    "nombre": "Pasta Spaghetti N°5 Carozzi 400 g",
+    "marca": "Carozzi",
+    "tipo": "Fideos",
+    "descripcion": "Pasta Spaghetti N°5 Carozzi 400 g",
+    "supermercado": 2,
+    "precio": "1090.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/299413-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/spaghetti-n-5-carozzi-bolsa-400-g-2/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+}  ,
+{
+  "model": "tucanasta.producto",
+  "pk": 145,
+  "fields": {
+    "nombre": "Pasta Espiral N°49 Carozzi 400 g",
+    "marca": "Carozzi",
+    "tipo": "Fideos",
+    "descripcion": "Pasta Espiral N°49 Carozzi 400 g",
+    "supermercado": 2,
+    "precio": "1090.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/299394-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/espirales-carozzi-bolsa-400-g/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 146,
+  "fields": {
+    "nombre": "Spaghetti N°5 Talliani Al Huevo 400 g",
+    "marca": "Talliani",
+    "tipo": "Fideos",
+    "descripcion": "Spaghetti N°5 Talliani Al Huevo 400 g",
+    "supermercado": 2,
+    "precio": "1350.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/299550-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/spaghetti-n-5-talliani-bolsa-400-g-con-huevos-frescos/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 147,
+  "fields": {
+    "nombre": "Espirales Talliani Al Huevo 400 g",
+    "marca": "Talliani",
+    "tipo": "Fideos",
+    "descripcion": "Espirales Talliani Al Huevo 400 g",
+    "supermercado": 2,
+    "precio": "1350.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/299529-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/espirales-talliani-bolsa-400-g/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 148,
+  "fields": {
+    "nombre": "Pasta Tallarín N°87 Carozzi Espinaca 400 g",
+    "marca": "Carozzi",
+    "tipo": "Fideos",
+    "descripcion": "Pasta Tallarín N°87 Carozzi Espinaca 400 g",
+    "supermercado": 2,
+    "precio": "1000.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/299418-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/tallarines-n-87-carozzi-bolsa-400-g-espinaca-2/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 149,
+  "fields": {
+    "nombre": "Pasta Fusilli Trattoria 400 g",
+    "marca": "Trattoria",
+    "tipo": "Fideos",
+    "descripcion": "Pasta Fusilli Trattoria 400 g",
+    "supermercado": 2,
+    "precio": "1000.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/352355-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/fusilli-trattoria-400-g/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 150,
+  "fields": {
+    "nombre": "Pasta Spaghetti N°5 Trattoria 400 g",
+    "marca": "Trattoria",
+    "tipo": "Fideos",
+    "descripcion": "Pasta Spaghetti N°5 Trattoria 400 g",
+    "supermercado": 2,
+    "precio": "1000.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/299572-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/spaghetti-n-5-trattoria-bolsa-400-g-con-huevos-frescos/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 151,
+  "fields": {
+    "nombre": "Pasta Rigatoni N°48 Carozzi 400 g",
+    "marca": "Carozzi",
+    "tipo": "Fideos",
+    "descripcion": "Pasta Rigatoni N°48 Carozzi 400 g",
+    "supermercado": 2,
+    "precio": "1090.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/299407-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/rigatoni-carozzi-bolsa-400-g-2/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 152,
+  "fields": {
+    "nombre": "Penne 100% Trigo Duro 400 g",
+    "marca": "Cuisine & Co",
+    "tipo": "Fideos",
+    "descripcion": "Penne 100% Trigo Duro 400 g",
+    "supermercado": 2,
+    "precio": "1040.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/379242-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/penne-100-trigo-duro-c-and-co-400-gr-1922155/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 153,
+  "fields": {
+    "nombre": "Pasta Fusilli Tricolor Carozzi 400 g",
+    "marca": "Carozzi",
+    "tipo": "Fideos",
+    "descripcion": "Pasta Fusilli Tricolor Carozzi 400 g",
+    "supermercado": 2,
+    "precio": "1000.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/352352-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/fusilli-carozzi-400-g-tricolori/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+} ,
+{
+  "model": "tucanasta.producto",
+  "pk": 154,
+  "fields": {
+    "nombre": "Pack Spaghetti N°5 Carozzi 3 un. 400 g + Salsa de Tomate 1 un. 200 g",
+    "marca": "Carozzi",
+    "tipo": "Fideos",
+    "descripcion": "Pack Spaghetti N°5 Carozzi 3 un. 400 g + Salsa de Tomate 1 un. 200 g",
+    "supermercado": 2,
+    "precio": "2790.00",
+    "moneda": "CLP",
+    "imagen_url": "https://jumbocl.vtexassets.com/arquivos/ids/352353-900-900?width=900&height=900&aspect=true",
+    "producto_url": "https://www.jumbo.cl/spaghetti-n-5-carozzi-pack-3-unid-400-g-c-u-salsa-italiana-200-g/p",
+    "disponible": true,
+    "fecha_actualizacion": "2025-11-17T00:00:00Z"
+  }
+}
 ]
 
 
